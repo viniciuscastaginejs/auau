@@ -2,483 +2,756 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Auaufood — Delivery e Pet Shop para o seu pet | Ribeirão Preto!</title>
-<meta name="description" content="Auaufood — Nutrição e delivery para o seu pet em Ribeirão Preto. Banho, tosa, ração, petiscos e acessórios entregues na porta da sua casa.">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Auaufood — Delivery para seu Pet</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{
-  --cream:#FDF4E7;
-  --cream-2:#F7E8D2;
-  --paper:#FFFCF6;
-  --tang:#F2872E;
-  --tang-deep:#DE6E14;
-  --coral:#FF9E6B;
-  --teal:#1F6F6B;
-  --teal-deep:#155450;
-  --cocoa:#3B2A1D;
-  --cocoa-soft:#7A6653;
-  --line:rgba(59,42,29,.10);
-  --maxw:1160px;
-  --ease:cubic-bezier(.34,1.32,.5,1);
-  --ease-soft:cubic-bezier(.22,.61,.36,1);
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  background:var(--cream);color:var(--cocoa);
-  font-family:'Nunito',system-ui,sans-serif;font-weight:500;line-height:1.6;
-  -webkit-font-smoothing:antialiased;overflow-x:hidden;
-}
-img,svg{display:block;max-width:100%}
-a{color:inherit;text-decoration:none}
-.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,5vw,44px)}
-h1,h2,h3,.display{font-family:'Fredoka',sans-serif;font-weight:600;line-height:1.08}
+  :root{
+    --orange:#F3941E;
+    --orange-deep:#E27B0C;
+    --orange-soft:#FDEBD3;
+    --ink:#3D2A20;
+    --ink-soft:#6B5849;
+    --cream:#EAEDC9;
+    --sky:#DCEEF3;
+    --bg:#FFF7EC;
+    --card:#FFFFFF;
+    --line:#F0E3D2;
+    --green:#3E9B54;
+    --green-soft:#E4F4E7;
+    --shadow:0 8px 24px rgba(61,42,32,.10);
+    --shadow-lg:0 16px 40px rgba(61,42,32,.16);
+    --radius:20px;
+    --radius-sm:14px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{height:100%}
+  body{
+    font-family:'Nunito',system-ui,sans-serif;
+    background:#E9DFCF;
+    color:var(--ink);
+    display:flex;justify-content:center;
+    overflow:hidden;
+  }
+  /* phone shell */
+  #app{
+    width:100%;max-width:440px;height:100dvh;
+    background:var(--bg);
+    position:relative;display:flex;flex-direction:column;
+    box-shadow:0 0 60px rgba(0,0,0,.18);
+    overflow:hidden;
+  }
+  h1,h2,h3,.brand,.price,.btn,.chip,.tab{font-family:'Baloo 2',cursive}
 
-/* Buttons */
-.btn{display:inline-flex;align-items:center;gap:.55rem;font-family:'Fredoka',sans-serif;font-weight:600;
-  font-size:1rem;padding:.9rem 1.6rem;border-radius:999px;cursor:pointer;border:2px solid transparent;
-  transition:transform .3s var(--ease),box-shadow .3s var(--ease-soft),background .3s,color .3s}
-.btn svg{width:19px;height:19px}
-.btn-primary{background:var(--tang);color:#fff;box-shadow:0 10px 22px -8px rgba(242,135,46,.6)}
-.btn-primary:hover{transform:translateY(-3px) scale(1.02);background:var(--tang-deep);box-shadow:0 16px 30px -10px rgba(242,135,46,.7)}
-.btn-teal{background:var(--teal);color:#fff;box-shadow:0 10px 22px -8px rgba(31,111,107,.5)}
-.btn-teal:hover{transform:translateY(-3px) scale(1.02);background:var(--teal-deep)}
-.btn-ghost{background:transparent;border-color:var(--cocoa);color:var(--cocoa)}
-.btn-ghost:hover{background:var(--cocoa);color:var(--cream);transform:translateY(-3px)}
+  /* ---------- Top bar ---------- */
+  .topbar{
+    flex:0 0 auto;
+    display:flex;align-items:center;gap:12px;
+    padding:14px 18px 12px;
+    background:linear-gradient(180deg,#fff 0%,#fffdf8 100%);
+    border-bottom:1px solid var(--line);
+    position:relative;z-index:20;
+  }
+  .topbar img{width:44px;height:44px;border-radius:50%;box-shadow:0 2px 8px rgba(61,42,32,.18)}
+  .topbar .tt{line-height:1.05}
+  .topbar .tt b{font-family:'Baloo 2';font-weight:800;font-size:19px;color:var(--ink);display:block}
+  .topbar .tt span{font-size:12px;color:var(--orange-deep);font-weight:700}
+  .topbar .region{
+    margin-left:auto;display:flex;align-items:center;gap:5px;
+    background:var(--sky);color:#2C6B7E;font-weight:700;font-size:11.5px;
+    padding:6px 10px;border-radius:20px;
+  }
 
-/* Logo badge (SVG placeholder — troque pela logo real) */
-.logo-badge{width:48px;height:48px;flex-shrink:0;object-fit:contain}
-.logo-badge .ring-text{font-family:'Fredoka',sans-serif;font-weight:600;fill:#fff;font-size:8.6px;letter-spacing:.5px}
+  /* ---------- Screens ---------- */
+  .screen{
+    flex:1 1 auto;overflow-y:auto;overflow-x:hidden;
+    -webkit-overflow-scrolling:touch;
+    padding:16px 16px 120px;
+    animation:fade .28s ease;
+  }
+  @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .screen::-webkit-scrollbar{display:none}
+  .hidden{display:none!important}
 
-/* Nav */
-header{position:fixed;top:0;left:0;right:0;z-index:50;padding:1rem 0;transition:padding .4s var(--ease-soft)}
-.nav{display:flex;align-items:center;justify-content:space-between;
-  background:rgba(255,252,246,.72);backdrop-filter:blur(14px);border:1.5px solid var(--line);
-  border-radius:999px;padding:.5rem .6rem .5rem 1rem;box-shadow:0 8px 26px -14px rgba(59,42,29,.3);
-  transition:box-shadow .4s}
-header.scrolled .nav{box-shadow:0 14px 34px -14px rgba(59,42,29,.35)}
-.brand{display:flex;align-items:center;gap:.6rem}
-.brand b{font-family:'Fredoka',sans-serif;font-size:1.3rem;font-weight:700;color:var(--cocoa)}
-.brand b span{color:var(--tang)}
-.nav-links{display:flex;align-items:center;gap:1.9rem}
-.nav-links a{font-family:'Fredoka',sans-serif;font-weight:500;font-size:1rem;color:var(--cocoa);opacity:.85;transition:color .25s,opacity .25s}
-.nav-links a:hover{color:var(--tang);opacity:1}
-.nav-right{display:flex;align-items:center;gap:.8rem}
-.menu-btn{display:none;background:none;border:none;color:var(--cocoa);cursor:pointer}
-.menu-btn svg{width:28px;height:28px}
+  /* ---------- Hero / categories ---------- */
+  .hero{
+    background:linear-gradient(135deg,var(--orange) 0%,#FFB44E 100%);
+    border-radius:24px;padding:18px 18px 20px;color:#fff;
+    box-shadow:var(--shadow);margin-bottom:18px;position:relative;overflow:hidden;
+  }
+  .hero .paw{position:absolute;font-size:120px;opacity:.14;right:-18px;bottom:-34px;transform:rotate(-15deg)}
+  .hero h2{font-size:22px;font-weight:800;line-height:1.1;margin-bottom:4px;position:relative}
+  .hero p{font-size:13.5px;font-weight:600;opacity:.95;position:relative;max-width:78%}
 
-/* Hero */
-.hero{position:relative;padding:150px 0 90px;overflow:hidden}
-.blob{position:absolute;border-radius:50%;filter:blur(8px);opacity:.5;z-index:0}
-.blob.b1{width:420px;height:420px;background:radial-gradient(circle,#FFD9B0,transparent 70%);top:-90px;right:-80px}
-.blob.b2{width:360px;height:360px;background:radial-gradient(circle,#BFE3E0,transparent 70%);bottom:-120px;left:-100px}
-.paw{position:absolute;color:var(--tang);opacity:.14;z-index:0}
-.paw svg{width:100%;height:100%}
-.paw.p1{width:46px;height:46px;top:22%;left:8%;transform:rotate(-18deg);animation:float 6s ease-in-out infinite}
-.paw.p2{width:34px;height:34px;top:60%;left:14%;transform:rotate(12deg);color:var(--teal);animation:float 7s ease-in-out infinite .5s}
-.paw.p3{width:40px;height:40px;top:30%;right:9%;transform:rotate(20deg);animation:float 5.5s ease-in-out infinite .3s}
-.paw.p4{width:28px;height:28px;bottom:16%;right:16%;transform:rotate(-10deg);color:var(--teal);animation:float 6.5s ease-in-out infinite}
-@keyframes float{0%,100%{transform:translateY(0) rotate(var(--r,0))}50%{transform:translateY(-14px) rotate(var(--r,0))}}
-.hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,5vw,60px);align-items:center}
-.badge-pill{display:inline-flex;align-items:center;gap:.5rem;background:#fff;border:1.5px solid var(--line);
-  border-radius:999px;padding:.45rem .95rem;font-family:'Fredoka',sans-serif;font-weight:500;font-size:.9rem;box-shadow:0 6px 16px -10px rgba(59,42,29,.4)}
-.badge-pill .dot{width:9px;height:9px;border-radius:50%;background:#43C463;box-shadow:0 0 0 3px rgba(67,196,99,.22);animation:blink 2s ease-in-out infinite}
-@keyframes blink{50%{opacity:.5}}
-.hero h1{font-size:clamp(2.5rem,6.2vw,4.4rem);margin:1.4rem 0 0;font-weight:700}
-.hero h1 .hl{position:relative;color:var(--tang);white-space:nowrap}
-.hero h1 .hl svg{position:absolute;left:0;bottom:-10px;width:100%;height:14px;color:var(--coral)}
-.hero p.lead{font-size:1.18rem;color:var(--cocoa-soft);max-width:30rem;margin:1.6rem 0 2.2rem}
-.hero-actions{display:flex;flex-wrap:wrap;gap:.9rem}
-.trust{display:flex;gap:1.6rem;margin-top:2.4rem;flex-wrap:wrap}
-.trust-item{display:flex;align-items:center;gap:.55rem;font-family:'Fredoka',sans-serif;font-weight:500;font-size:.95rem;color:var(--cocoa)}
-.trust-item svg{width:22px;height:22px;color:var(--tang)}
+  .cats{display:flex;gap:9px;overflow-x:auto;padding:2px 2px 8px;margin:0 -2px 6px}
+  .cats::-webkit-scrollbar{display:none}
+  .chip{
+    flex:0 0 auto;border:none;cursor:pointer;
+    background:#fff;color:var(--ink-soft);font-weight:700;font-size:14px;
+    padding:9px 16px;border-radius:22px;box-shadow:var(--shadow);
+    display:flex;align-items:center;gap:6px;transition:.18s;
+  }
+  .chip.active{background:var(--ink);color:#fff}
+  .chip .e{font-size:16px}
 
-/* Hero art card */
-.hero-art{position:relative;display:flex;justify-content:center}
-.pet-card{position:relative;width:min(400px,90%);background:var(--paper);border:2px solid var(--line);
-  border-radius:36px;padding:2.6rem 2rem;box-shadow:0 30px 60px -30px rgba(59,42,29,.5);text-align:center}
-.pet-card .big-logo{width:150px;height:150px;margin:0 auto 1.2rem}
-.pet-card h3{font-size:1.5rem;font-weight:700}
-.pet-card p{color:var(--cocoa-soft);margin-top:.3rem;font-size:.98rem}
-.pet-card .row{display:flex;gap:.6rem;justify-content:center;margin-top:1.4rem;flex-wrap:wrap}
-.chip{display:inline-flex;align-items:center;gap:.4rem;background:var(--cream-2);border-radius:999px;padding:.45rem .85rem;font-family:'Fredoka',sans-serif;font-weight:500;font-size:.85rem}
-.chip svg{width:16px;height:16px;color:var(--teal)}
-.deliver-tag{position:absolute;top:-18px;right:-14px;background:var(--teal);color:#fff;font-family:'Fredoka',sans-serif;font-weight:600;
-  padding:.6rem 1rem;border-radius:16px;font-size:.9rem;display:flex;align-items:center;gap:.4rem;box-shadow:0 12px 24px -10px rgba(31,111,107,.6);animation:wag 3s ease-in-out infinite}
-.deliver-tag svg{width:18px;height:18px}
-@keyframes wag{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+  .sechead{font-family:'Baloo 2';font-weight:700;font-size:16px;margin:14px 4px 10px;color:var(--ink)}
 
-/* Sections */
-.sec-pad{padding:clamp(64px,9vw,110px) 0}
-.sec-head{max-width:620px;margin:0 auto clamp(40px,6vw,64px);text-align:center}
-.eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-family:'Fredoka',sans-serif;font-weight:600;
-  color:var(--tang);text-transform:uppercase;letter-spacing:.12em;font-size:.82rem;
-  background:#fff;border:1.5px solid var(--line);border-radius:999px;padding:.4rem .9rem;margin-bottom:1.2rem}
-.eyebrow svg{width:16px;height:16px}
-.sec-head h2{font-size:clamp(2rem,5vw,3.2rem);font-weight:700}
-.sec-head p{color:var(--cocoa-soft);margin-top:1rem;font-size:1.08rem}
+  /* ---------- Product card ---------- */
+  .card{
+    background:var(--card);border-radius:var(--radius);padding:12px;
+    box-shadow:var(--shadow);display:flex;gap:13px;align-items:center;margin-bottom:12px;
+    border:1px solid #FBF2E6;
+  }
+  .thumb{
+    flex:0 0 76px;width:76px;height:76px;border-radius:16px;
+    display:grid;place-items:center;font-size:38px;
+  }
+  .card .info{flex:1 1 auto;min-width:0}
+  .card .info h3{font-family:'Nunito';font-weight:800;font-size:15px;line-height:1.15;color:var(--ink)}
+  .card .info .desc{font-size:12px;color:var(--ink-soft);margin-top:2px;font-weight:600}
+  .badge{
+    display:inline-block;font-family:'Baloo 2';font-weight:700;font-size:10.5px;
+    padding:2px 8px;border-radius:10px;margin-top:6px;
+  }
+  .badge.granel{background:var(--cream);color:#6E7A1E}
+  .badge.pacote{background:var(--sky);color:#2C6B7E}
+  .card .foot{display:flex;align-items:center;justify-content:space-between;margin-top:8px}
+  .price{font-family:'Baloo 2';font-weight:800;font-size:17px;color:var(--ink)}
+  .price small{font-family:'Nunito';font-weight:700;font-size:11px;color:var(--ink-soft)}
+  .addbtn{
+    border:none;cursor:pointer;background:var(--orange);color:#fff;
+    width:38px;height:38px;border-radius:12px;font-size:22px;font-weight:800;
+    display:grid;place-items:center;box-shadow:0 4px 10px rgba(243,148,30,.4);
+    transition:transform .12s;
+  }
+  .addbtn:active{transform:scale(.88)}
 
-/* Serviços */
-.svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem}
-.svc{background:var(--paper);border:2px solid var(--line);border-radius:28px;padding:2rem 1.7rem;
-  transition:transform .4s var(--ease),border-color .4s,box-shadow .4s var(--ease-soft)}
-.svc:hover{transform:translateY(-8px);border-color:var(--tang);box-shadow:0 24px 44px -24px rgba(242,135,46,.5)}
-.svc-ico{width:60px;height:60px;border-radius:20px;display:flex;align-items:center;justify-content:center;margin-bottom:1.3rem}
-.svc-ico svg{width:28px;height:28px;color:#fff}
-.svc:nth-child(1) .svc-ico{background:var(--tang)}
-.svc:nth-child(2) .svc-ico{background:var(--teal)}
-.svc:nth-child(3) .svc-ico{background:var(--coral)}
-.svc:nth-child(4) .svc-ico{background:var(--teal-deep)}
-.svc h3{font-size:1.4rem;font-weight:600}
-.svc p{color:var(--cocoa-soft);margin-top:.5rem;font-size:.96rem}
+  /* ---------- Bottom nav ---------- */
+  .bottomnav{
+    position:absolute;bottom:0;left:0;right:0;height:74px;
+    background:#fff;border-top:1px solid var(--line);
+    display:flex;z-index:30;padding-bottom:env(safe-area-inset-bottom);
+    box-shadow:0 -6px 20px rgba(61,42,32,.06);
+  }
+  .tab{
+    flex:1;border:none;background:none;cursor:pointer;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
+    color:#B9A995;font-weight:700;font-size:11.5px;position:relative;
+  }
+  .tab .ic{font-size:22px}
+  .tab.active{color:var(--orange-deep)}
+  .cartcount{
+    position:absolute;top:12px;left:calc(50% + 8px);
+    background:var(--ink);color:#fff;font-family:'Baloo 2';font-weight:700;
+    font-size:11px;min-width:19px;height:19px;border-radius:10px;
+    display:grid;place-items:center;padding:0 5px;transform:scale(0);transition:transform .2s;
+  }
+  .cartcount.show{transform:scale(1)}
+  @keyframes pop{0%{transform:scale(1)}40%{transform:scale(1.35)}100%{transform:scale(1)}}
+  .cartcount.pulse{animation:pop .35s}
 
-/* Como funciona */
-.how{background:var(--teal);color:var(--cream);border-radius:44px;margin:0 clamp(0px,3vw,20px);position:relative;overflow:hidden}
-.how .paw-bg{position:absolute;inset:0;opacity:.06;pointer-events:none}
-.how .paw-bg svg{position:absolute;width:120px;height:120px;color:#fff}
-.how .sec-head h2,.how .sec-head p{color:var(--cream)}
-.how .eyebrow{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.2);color:#fff}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;position:relative;z-index:1}
-.step{background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.16);border-radius:26px;padding:2rem 1.7rem}
-.step .num{font-family:'Fredoka',sans-serif;font-weight:700;font-size:2.6rem;color:var(--coral);line-height:1}
-.step .step-ico{margin:1rem 0;color:#fff}
-.step .step-ico svg{width:34px;height:34px;stroke-width:1.6}
-.step h3{font-size:1.4rem;font-weight:600}
-.step p{color:rgba(253,244,231,.82);margin-top:.4rem;font-size:.98rem}
+  /* ---------- Buttons ---------- */
+  .btn{
+    width:100%;border:none;cursor:pointer;font-family:'Baloo 2';font-weight:700;
+    font-size:17px;padding:15px;border-radius:16px;transition:transform .12s,filter .12s;
+  }
+  .btn:active{transform:scale(.98)}
+  .btn-primary{background:var(--orange);color:#fff;box-shadow:0 8px 18px rgba(243,148,30,.35)}
+  .btn-dark{background:var(--ink);color:#fff}
+  .btn-ghost{background:#fff;color:var(--ink);border:1.5px solid var(--line)}
+  .btn:disabled{opacity:.5;filter:grayscale(.3)}
 
-/* Diferenciais */
-.feats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem}
-.feat{display:flex;gap:1.1rem;align-items:flex-start;background:var(--paper);border:2px solid var(--line);border-radius:24px;padding:1.7rem}
-.feat-ico{width:52px;height:52px;border-radius:16px;background:var(--cream-2);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.feat-ico svg{width:26px;height:26px;color:var(--tang)}
-.feat h3{font-size:1.25rem;font-weight:600}
-.feat p{color:var(--cocoa-soft);font-size:.94rem;margin-top:.3rem}
+  /* ---------- Sheet (granel weight / product) ---------- */
+  .sheet-back{
+    position:absolute;inset:0;background:rgba(45,30,22,.5);z-index:50;
+    display:flex;align-items:flex-end;opacity:0;pointer-events:none;transition:opacity .25s;
+  }
+  .sheet-back.show{opacity:1;pointer-events:auto}
+  .sheet{
+    width:100%;background:#fff;border-radius:26px 26px 0 0;padding:8px 20px 26px;
+    transform:translateY(100%);transition:transform .3s cubic-bezier(.2,.8,.2,1);max-height:88%;overflow-y:auto;
+  }
+  .sheet-back.show .sheet{transform:none}
+  .grab{width:44px;height:5px;background:#E4D6C4;border-radius:3px;margin:8px auto 16px}
+  .sheet .bigthumb{width:100%;height:150px;border-radius:20px;display:grid;place-items:center;font-size:74px;margin-bottom:14px}
+  .sheet h2{font-size:21px;font-weight:800}
+  .sheet .sdesc{color:var(--ink-soft);font-weight:600;font-size:13.5px;margin:4px 0 16px}
+  .wlabel{font-weight:800;font-size:13px;color:var(--ink-soft);margin-bottom:9px;display:block}
+  .weights{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:18px}
+  .wchip{
+    border:1.5px solid var(--line);background:#fff;cursor:pointer;
+    font-family:'Baloo 2';font-weight:700;font-size:15px;color:var(--ink);
+    padding:11px 16px;border-radius:14px;transition:.15s;flex:1;min-width:70px;text-align:center;
+  }
+  .wchip.active{background:var(--orange-soft);border-color:var(--orange);color:var(--orange-deep)}
+  .stepper{display:flex;align-items:center;gap:16px;justify-content:center;margin-bottom:18px}
+  .stepper button{
+    width:46px;height:46px;border-radius:14px;border:1.5px solid var(--line);background:#fff;
+    font-size:26px;font-weight:800;cursor:pointer;color:var(--ink);display:grid;place-items:center;
+  }
+  .stepper span{font-family:'Baloo 2';font-weight:800;font-size:26px;min-width:44px;text-align:center}
+  .sheet-total{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+  .sheet-total .price{font-size:26px}
 
-/* Localização */
-.local-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:0;background:var(--paper);border:2px solid var(--line);border-radius:32px;overflow:hidden}
-.local-info{padding:clamp(30px,4vw,50px);display:flex;flex-direction:column;justify-content:center}
-.local-info h2{font-size:clamp(1.9rem,4vw,2.8rem);font-weight:700;margin-bottom:1.5rem}
-.info-row{display:flex;gap:1rem;padding:1.1rem 0;border-top:1.5px solid var(--line)}
-.info-row:first-of-type{border-top:none}
-.info-row .ic{width:44px;height:44px;border-radius:14px;background:var(--cream-2);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.info-row .ic svg{width:22px;height:22px;color:var(--teal)}
-.info-row .lbl{font-family:'Fredoka',sans-serif;font-weight:600;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--cocoa-soft)}
-.info-row .val{font-size:1.05rem;font-weight:600;color:var(--cocoa)}
-.info-row a.val:hover{color:var(--tang)}
-.local-info .btn{margin-top:1.8rem;align-self:flex-start}
-.map-wrap{min-height:440px;position:relative}
-.map-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  /* ---------- Cart ---------- */
+  .empty{text-align:center;padding:60px 20px;color:var(--ink-soft)}
+  .empty .e{font-size:64px;display:block;margin-bottom:12px}
+  .empty p{font-weight:700;font-size:15px}
+  .citem{background:#fff;border-radius:16px;padding:11px;display:flex;gap:11px;align-items:center;margin-bottom:10px;box-shadow:var(--shadow)}
+  .citem .cth{width:52px;height:52px;border-radius:12px;display:grid;place-items:center;font-size:26px;flex:0 0 52px}
+  .citem .cin{flex:1;min-width:0}
+  .citem .cin h4{font-family:'Nunito';font-weight:800;font-size:14px}
+  .citem .cin .q{font-size:12px;color:var(--ink-soft);font-weight:700;margin-top:1px}
+  .citem .cpr{font-family:'Baloo 2';font-weight:800;font-size:15px}
+  .citem .rm{background:none;border:none;color:#C9B7A4;font-size:20px;cursor:pointer;padding:2px 4px}
+  .summary{background:#fff;border-radius:18px;padding:16px;box-shadow:var(--shadow);margin-top:6px}
+  .srow{display:flex;justify-content:space-between;font-weight:700;font-size:14px;color:var(--ink-soft);margin-bottom:9px}
+  .srow.total{color:var(--ink);font-family:'Baloo 2';font-weight:800;font-size:20px;border-top:1px dashed var(--line);padding-top:12px;margin-top:3px}
+  .freebar{background:var(--green-soft);color:var(--green);font-weight:700;font-size:12.5px;padding:9px 12px;border-radius:12px;margin:10px 0;text-align:center}
 
-/* CTA */
-.cta{position:relative;margin:0 clamp(0px,3vw,20px);background:linear-gradient(135deg,var(--tang),var(--coral));
-  border-radius:44px;padding:clamp(50px,7vw,80px) 1.5rem;text-align:center;color:#fff;overflow:hidden}
-.cta .paw-bg svg{position:absolute;color:#fff;opacity:.12}
-.cta h2{font-size:clamp(2.1rem,5.5vw,3.4rem);font-weight:700;position:relative;z-index:1}
-.cta p{max-width:34rem;margin:1rem auto 2rem;font-size:1.12rem;opacity:.95;position:relative;z-index:1}
-.cta .btn{position:relative;z-index:1}
-.cta .btn-primary{background:#fff;color:var(--tang-deep);box-shadow:0 14px 30px -12px rgba(0,0,0,.35)}
-.cta .btn-primary:hover{background:var(--cream)}
+  /* ---------- Forms ---------- */
+  .field{margin-bottom:13px}
+  .field label{display:block;font-weight:800;font-size:12.5px;color:var(--ink-soft);margin-bottom:6px;margin-left:2px}
+  .field input,.field select{
+    width:100%;border:1.5px solid var(--line);background:#fff;border-radius:14px;
+    padding:13px 14px;font-family:'Nunito';font-weight:700;font-size:15px;color:var(--ink);outline:none;transition:.15s;
+  }
+  .field input:focus,.field select:focus{border-color:var(--orange);box-shadow:0 0 0 3px var(--orange-soft)}
+  .row2{display:flex;gap:10px}
+  .row2 .field{flex:1}
+  .pay-opt{
+    display:flex;align-items:center;gap:12px;background:#fff;border:1.5px solid var(--line);
+    border-radius:16px;padding:14px;margin-bottom:10px;cursor:pointer;transition:.15s;
+  }
+  .pay-opt.active{border-color:var(--orange);background:var(--orange-soft)}
+  .pay-opt .pe{font-size:26px}
+  .pay-opt .pt{flex:1}
+  .pay-opt .pt b{font-family:'Baloo 2';font-weight:700;font-size:15px;display:block}
+  .pay-opt .pt span{font-size:12px;color:var(--ink-soft);font-weight:700}
+  .pay-opt .radio{width:22px;height:22px;border-radius:50%;border:2px solid var(--line)}
+  .pay-opt.active .radio{border-color:var(--orange);background:radial-gradient(var(--orange) 40%,#fff 46%)}
 
-/* Footer */
-footer{background:var(--cocoa);color:var(--cream);padding:3.4rem 0 2.2rem;margin-top:clamp(50px,7vw,90px)}
-.foot-grid{display:flex;justify-content:space-between;align-items:center;gap:1.8rem;flex-wrap:wrap}
-.foot-brand{display:flex;align-items:center;gap:.7rem}
-.foot-brand b{font-family:'Fredoka',sans-serif;font-size:1.4rem;font-weight:700}
-.foot-brand b span{color:var(--tang)}
-.foot-social{display:flex;gap:.7rem}
-.foot-social a{width:46px;height:46px;border-radius:50%;border:1.5px solid rgba(253,244,231,.2);display:flex;align-items:center;justify-content:center;transition:all .3s var(--ease)}
-.foot-social a svg{width:20px;height:20px}
-.foot-social a:hover{background:var(--tang);border-color:var(--tang);transform:translateY(-3px)}
-.foot-bottom{margin-top:2.4rem;padding-top:1.7rem;border-top:1.5px solid rgba(253,244,231,.14);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.8rem;font-size:.9rem;color:rgba(253,244,231,.7)}
-.foot-bottom a{color:var(--tang);font-weight:700}
+  .backbtn{display:inline-flex;align-items:center;gap:5px;background:none;border:none;font-family:'Baloo 2';font-weight:700;font-size:15px;color:var(--ink);cursor:pointer;margin-bottom:6px}
+  .pagetitle{font-family:'Baloo 2';font-weight:800;font-size:23px;margin:2px 2px 16px}
 
-/* WhatsApp float */
-.wa{position:fixed;bottom:22px;right:22px;z-index:60;width:60px;height:60px;border-radius:50%;
-  background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 28px -8px rgba(37,211,102,.6);transition:transform .3s var(--ease)}
-.wa:hover{transform:scale(1.1)}
-.wa svg{width:30px;height:30px;color:#fff}
-.wa::after{content:'';position:absolute;inset:0;border-radius:50%;border:2px solid rgba(37,211,102,.5);animation:pulse 2.4s ease-out infinite}
-@keyframes pulse{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.6);opacity:0}}
+  /* ---------- Pix ---------- */
+  .pix-wrap{text-align:center;padding:6px 4px}
+  .qr{
+    width:210px;height:210px;background:#fff;border-radius:20px;margin:6px auto 16px;
+    padding:14px;box-shadow:var(--shadow-lg);position:relative;
+  }
+  .qr svg{width:100%;height:100%}
+  .qr .logohole{position:absolute;inset:0;margin:auto;width:52px;height:52px;background:#fff;border-radius:12px;display:grid;place-items:center;box-shadow:0 0 0 5px #fff}
+  .qr .logohole img{width:44px;height:44px;border-radius:10px}
+  .pixcode{
+    display:flex;align-items:center;gap:8px;background:#fff;border:1.5px dashed var(--line);
+    border-radius:12px;padding:11px 12px;margin:0 auto 16px;max-width:300px;
+  }
+  .pixcode code{flex:1;font-family:monospace;font-size:11px;color:var(--ink-soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:left}
+  .pixcode button{background:var(--ink);color:#fff;border:none;border-radius:9px;padding:7px 12px;font-family:'Baloo 2';font-weight:700;font-size:12px;cursor:pointer;flex:0 0 auto}
+  .waiting{display:flex;align-items:center;justify-content:center;gap:10px;color:var(--orange-deep);font-family:'Baloo 2';font-weight:700;font-size:15px;margin-bottom:6px}
+  .paws{display:flex;gap:6px}
+  .paws span{font-size:18px;animation:bounce 1s infinite}
+  .paws span:nth-child(2){animation-delay:.15s}
+  .paws span:nth-child(3){animation-delay:.3s}
+  @keyframes bounce{0%,100%{transform:translateY(0);opacity:.4}50%{transform:translateY(-7px);opacity:1}}
+  .pixval{font-family:'Baloo 2';font-weight:800;font-size:30px;margin-bottom:2px}
 
-/* Mobile menu */
-.mmenu{position:fixed;inset:0;z-index:55;background:var(--cream);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.6rem;opacity:0;pointer-events:none;transition:opacity .35s}
-.mmenu.open{opacity:1;pointer-events:auto}
-.mmenu a{font-family:'Fredoka',sans-serif;font-weight:600;font-size:1.9rem;color:var(--cocoa)}
-.mmenu a:hover{color:var(--tang)}
-.mmenu .close{position:absolute;top:26px;right:26px;background:none;border:none;color:var(--cocoa);cursor:pointer}
-.mmenu .close svg{width:30px;height:30px}
+  /* ---------- Success ---------- */
+  .success{text-align:center;padding:30px 10px}
+  .checkmark{
+    width:96px;height:96px;border-radius:50%;background:var(--green-soft);
+    display:grid;place-items:center;margin:8px auto 18px;position:relative;
+    animation:popin .5s cubic-bezier(.2,1.4,.4,1);
+  }
+  @keyframes popin{0%{transform:scale(0)}100%{transform:scale(1)}}
+  .checkmark svg{width:48px;height:48px}
+  .success h2{font-family:'Baloo 2';font-weight:800;font-size:26px;margin-bottom:6px}
+  .success p{color:var(--ink-soft);font-weight:700;font-size:14px;margin-bottom:20px;line-height:1.4}
+  .order-card{background:#fff;border-radius:18px;padding:16px;box-shadow:var(--shadow);text-align:left;margin-bottom:14px}
+  .order-card .on{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;padding-bottom:12px;border-bottom:1px dashed var(--line)}
+  .order-card .on b{font-family:'Baloo 2';font-weight:800;font-size:16px}
+  .order-card .on span{background:var(--green-soft);color:var(--green);font-family:'Baloo 2';font-weight:700;font-size:12px;padding:4px 10px;border-radius:20px}
+  .order-card .oi{display:flex;justify-content:space-between;font-weight:700;font-size:13.5px;color:var(--ink-soft);margin-bottom:6px}
 
-/* Reveal */
-.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease-soft),transform .8s var(--ease-soft)}
-.reveal.in{opacity:1;transform:none}
-.reveal[data-d="1"]{transition-delay:.09s}
-.reveal[data-d="2"]{transition-delay:.18s}
-.reveal[data-d="3"]{transition-delay:.27s}
+  /* ---------- Lojista panel ---------- */
+  .loj-head{background:var(--ink);color:#fff;padding:16px 18px;display:flex;align-items:center;gap:10px}
+  .loj-head .e{font-size:26px}
+  .loj-head b{font-family:'Baloo 2';font-weight:800;font-size:18px;display:block}
+  .loj-head span{font-size:12px;opacity:.7;font-weight:700}
+  .neworder{background:#fff;border-radius:18px;box-shadow:var(--shadow);overflow:hidden;margin-bottom:14px;border:1px solid #FBF2E6}
+  .neworder .nh{background:var(--orange-soft);padding:12px 15px;display:flex;justify-content:space-between;align-items:center}
+  .neworder .nh b{font-family:'Baloo 2';font-weight:800;font-size:15px;color:var(--orange-deep)}
+  .neworder .nh .t{font-size:11px;color:var(--ink-soft);font-weight:700}
+  .neworder .nb{padding:15px}
+  .neworder .cust{font-family:'Baloo 2';font-weight:700;font-size:16px}
+  .neworder .addr{font-size:13px;color:var(--ink-soft);font-weight:700;margin:3px 0 12px}
+  .neworder .liw{background:#FBF6EF;border-radius:12px;padding:10px 12px;margin-bottom:12px}
+  .neworder .liw .li{display:flex;justify-content:space-between;font-weight:700;font-size:13px;margin-bottom:4px}
+  .paytag{display:inline-block;font-family:'Baloo 2';font-weight:700;font-size:12px;padding:4px 10px;border-radius:10px;margin-bottom:12px}
+  .paytag.pago{background:var(--green-soft);color:var(--green)}
+  .paytag.entrega{background:var(--sky);color:#2C6B7E}
+  .statusflow{display:flex;gap:6px;margin-bottom:12px}
+  .statusflow button{flex:1;border:1.5px solid var(--line);background:#fff;border-radius:11px;padding:8px 4px;font-family:'Baloo 2';font-weight:700;font-size:11px;color:var(--ink-soft);cursor:pointer}
+  .statusflow button.done{background:var(--green);border-color:var(--green);color:#fff}
+  .wa-btn{width:100%;background:#25D366;color:#fff;border:none;border-radius:13px;padding:12px;font-family:'Baloo 2';font-weight:700;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px}
 
-/* Responsive */
-@media(max-width:940px){
-  .nav-links,.nav-right .btn{display:none}
-  .menu-btn{display:block}
-  .hero-inner{grid-template-columns:1fr;text-align:center}
-  .hero p.lead{margin-left:auto;margin-right:auto}
-  .hero-actions,.trust{justify-content:center}
-  .hero-art{order:-1;margin-bottom:1rem}
-  .svc-grid{grid-template-columns:repeat(2,1fr)}
-  .steps{grid-template-columns:1fr}
-  .feats-grid{grid-template-columns:1fr}
-  .local-grid{grid-template-columns:1fr}
-  .map-wrap{min-height:340px;order:2}
-}
-@media(max-width:540px){
-  .svc-grid{grid-template-columns:1fr}
-  .hero{padding:130px 0 60px}
-  .foot-grid,.foot-bottom{justify-content:center;text-align:center;flex-direction:column}
-}
-@media(prefers-reduced-motion:reduce){
-  *{animation:none!important;transition-duration:.01ms!important}
-  .reveal{opacity:1;transform:none}
-}
-:focus-visible{outline:3px solid var(--teal);outline-offset:3px;border-radius:6px}
+  .demo-flag{position:absolute;top:0;left:0;right:0;text-align:center;background:var(--ink);color:#fff;font-family:'Baloo 2';font-weight:700;font-size:11px;padding:4px;z-index:60;letter-spacing:.3px}
+
+  .toast{
+    position:absolute;left:50%;bottom:92px;transform:translateX(-50%) translateY(20px);
+    background:var(--ink);color:#fff;font-family:'Baloo 2';font-weight:700;font-size:13px;
+    padding:11px 18px;border-radius:30px;box-shadow:var(--shadow-lg);z-index:70;opacity:0;transition:.28s;white-space:nowrap;
+  }
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 </style>
 </head>
 <body>
+<div id="app">
+  <div class="demo-flag">🐾 PROTÓTIPO DEMONSTRATIVO — pagamento simulado</div>
 
-<!-- Logo SVG definido uma vez, reutilizado -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <symbol id="auau-logo" viewBox="0 0 100 100">
-      <circle cx="50" cy="50" r="49" fill="#F2872E"/>
-      <circle cx="50" cy="50" r="40" fill="#FDF4E7"/>
-      <path id="circtop" d="M50,12 a38,38 0 0,1 0,76 a38,38 0 0,1 0,-76" fill="none"/>
-      <text class="ring-text" fill="#fff" font-family="Fredoka,sans-serif" font-weight="600" font-size="8.6">
-        <textPath href="#circtop" startOffset="6%">O DELIVERY PARA SEU PET</textPath>
-      </text>
-      <g transform="translate(50,52)" fill="#1F6F6B">
-        <ellipse cx="0" cy="6" rx="12" ry="9"/>
-        <circle cx="-11" cy="-6" r="4.6"/><circle cx="11" cy="-6" r="4.6"/>
-        <circle cx="-5" cy="-12" r="4"/><circle cx="5" cy="-12" r="4"/>
-      </g>
-    </symbol>
-    <symbol id="pawicon" viewBox="0 0 24 24">
-      <path fill="currentColor" d="M12 14c-2.5 0-4.5 1.8-4.5 4 0 1.6 1.4 2.5 3 2.5.9 0 1-.3 1.5-.3s.6.3 1.5.3c1.6 0 3-.9 3-2.5 0-2.2-2-4-4.5-4Zm-5.2-1.6c1.1-.3 1.6-1.8 1.1-3.3-.5-1.5-1.7-2.5-2.8-2.2-1.1.3-1.6 1.8-1.1 3.3.5 1.5 1.7 2.5 2.8 2.2Zm10.4 0c1.1.3 2.3-.7 2.8-2.2.5-1.5 0-3-1.1-3.3-1.1-.3-2.3.7-2.8 2.2-.5 1.5 0 3 1.1 3.3ZM9.6 6.6c1.1 0 2-1.2 2-2.8s-.9-2.8-2-2.8-2 1.2-2 2.8.9 2.8 2 2.8Zm4.8 0c1.1 0 2-1.2 2-2.8s-.9-2.8-2-2.8-2 1.2-2 2.8.9 2.8 2 2.8Z"/>
-    </symbol>
-  </defs>
-</svg>
+  <!-- TOP BAR -->
+  <div class="topbar" id="topbar" style="margin-top:24px">
+    <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1782999288/82c75cd8-8ca7-448d-bdbc-4a431a75b18e_qum62u.png" alt="Auaufood">
+    <div class="tt"><b>Auaufood</b><span>Delivery para seu pet 🐶</span></div>
+    <div class="region">📍 Sua região</div>
+  </div>
 
-<!-- NAV -->
-<header id="header">
-  <div class="wrap"><div class="nav">
-    <a href="#top" class="brand"><img class="logo-badge" src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1782999288/82c75cd8-8ca7-448d-bdbc-4a431a75b18e_qum62u.png" alt="Auaufood"><b>Auau<span>food</span></b></a>
-    <nav class="nav-links" aria-label="Principal">
-      <a href="#servicos">Serviços</a>
-      <a href="#como">Como funciona</a>
-      <a href="#porque">Por que nós</a>
-      <a href="#local">Onde estamos</a>
-    </nav>
-    <div class="nav-right">
-      <a href="https://wa.me/5516997744187?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20fazer%20um%20pedido." target="_blank" rel="noopener" class="btn btn-primary"><i data-lucide="shopping-bag"></i> Pedir agora</a>
-      <button class="menu-btn" id="menuBtn" aria-label="Abrir menu"><i data-lucide="menu"></i></button>
+  <!-- ===== CATALOG ===== -->
+  <div class="screen" id="screen-catalog">
+    <div class="hero">
+      <span class="paw">🐾</span>
+      <h2>Ração e mimos<br>na porta de casa</h2>
+      <p>Peça pelo celular e receba rapidinho, só aqui na região.</p>
     </div>
-  </div></div>
-</header>
+    <div class="cats" id="cats"></div>
+    <div id="products"></div>
+  </div>
 
-<div class="mmenu" id="mmenu">
-  <button class="close" id="menuClose" aria-label="Fechar menu"><i data-lucide="x"></i></button>
-  <a href="#servicos">Serviços</a>
-  <a href="#como">Como funciona</a>
-  <a href="#porque">Por que nós</a>
-  <a href="#local">Onde estamos</a>
-  <a href="https://wa.me/5516997744187" target="_blank" rel="noopener" class="btn btn-primary" style="display:inline-flex"><i data-lucide="shopping-bag"></i> Pedir no WhatsApp</a>
+  <!-- ===== CART ===== -->
+  <div class="screen hidden" id="screen-cart">
+    <div class="pagetitle">Sua sacola 🛍️</div>
+    <div id="cart-body"></div>
+  </div>
+
+  <!-- ===== CHECKOUT ===== -->
+  <div class="screen hidden" id="screen-checkout">
+    <button class="backbtn" onclick="go('cart')">‹ Voltar</button>
+    <div class="pagetitle">Entrega e pagamento</div>
+
+    <div class="field"><label>Seu nome</label><input id="f-nome" placeholder="Ex: Maria Silva"></div>
+    <div class="field"><label>WhatsApp</label><input id="f-wpp" placeholder="(16) 99999-9999" inputmode="tel"></div>
+    <div class="row2">
+      <div class="field" style="flex:2"><label>Rua</label><input id="f-rua" placeholder="Rua das Flores"></div>
+      <div class="field" style="flex:1"><label>Nº</label><input id="f-num" placeholder="123" inputmode="numeric"></div>
+    </div>
+    <div class="field">
+      <label>Bairro (define o frete)</label>
+      <select id="f-bairro" onchange="renderCart()">
+        <option value="">Selecione seu bairro…</option>
+      </select>
+    </div>
+    <div class="field"><label>Complemento / referência</label><input id="f-comp" placeholder="Apto 12, próximo à praça"></div>
+
+    <div class="sechead" style="margin-left:2px">Como quer pagar?</div>
+    <div class="pay-opt active" data-pay="pix" onclick="selectPay('pix')">
+      <span class="pe">📱</span><div class="pt"><b>Pix</b><span>Pague agora, aprovação na hora</span></div><div class="radio"></div>
+    </div>
+    <div class="pay-opt" data-pay="cartao" onclick="selectPay('cartao')">
+      <span class="pe">💳</span><div class="pt"><b>Cartão online</b><span>Crédito ou débito</span></div><div class="radio"></div>
+    </div>
+    <div class="pay-opt" data-pay="entrega" onclick="selectPay('entrega')">
+      <span class="pe">🛵</span><div class="pt"><b>Pagar na entrega</b><span>Dinheiro, Pix ou maquininha</span></div><div class="radio"></div>
+    </div>
+
+    <div class="summary" style="margin-top:16px">
+      <div class="srow"><span>Subtotal</span><span id="co-sub">R$ 0,00</span></div>
+      <div class="srow"><span>Entrega</span><span id="co-fee">—</span></div>
+      <div class="srow total"><span>Total</span><span id="co-total">R$ 0,00</span></div>
+    </div>
+    <button class="btn btn-primary" id="co-btn" style="margin-top:16px" onclick="confirmCheckout()">Finalizar pedido</button>
+  </div>
+
+  <!-- ===== PIX ===== -->
+  <div class="screen hidden" id="screen-pix">
+    <button class="backbtn" onclick="go('checkout')">‹ Voltar</button>
+    <div class="pix-wrap">
+      <div class="pixval" id="pix-value">R$ 0,00</div>
+      <div style="color:var(--ink-soft);font-weight:700;font-size:13px;margin-bottom:14px">Escaneie o QR Code para pagar</div>
+      <div class="qr" id="qr"><div class="logohole"><img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1782999288/82c75cd8-8ca7-448d-bdbc-4a431a75b18e_qum62u.png"></div></div>
+      <div class="pixcode">
+        <code>00020126BR.GOV.BCB.PIX.AUAUFOOD5204…</code>
+        <button onclick="copyPix(this)">Copiar</button>
+      </div>
+      <div class="waiting" id="pix-wait">
+        <div class="paws"><span>🐾</span><span>🐾</span><span>🐾</span></div>
+        Aguardando pagamento…
+      </div>
+      <div style="color:var(--ink-soft);font-size:12px;font-weight:600;margin-top:4px">A confirmação é automática assim que o Pix cair.</div>
+    </div>
+  </div>
+
+  <!-- ===== SUCCESS ===== -->
+  <div class="screen hidden" id="screen-success">
+    <div class="success">
+      <div class="checkmark">
+        <svg viewBox="0 0 52 52"><path fill="none" stroke="#3E9B54" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" d="M14 27 l8 8 l16 -18"/></svg>
+      </div>
+      <h2 id="succ-title">Pedido confirmado! 🎉</h2>
+      <p id="succ-sub">Já mandamos seu pedido pra loja.<br>Você vai receber tudo pelo WhatsApp.</p>
+      <div class="order-card" id="succ-card"></div>
+      <button class="btn btn-dark" onclick="openLojista()">👀 Ver como chega pra loja</button>
+      <button class="btn btn-ghost" style="margin-top:10px" onclick="resetAll()">Fazer novo pedido</button>
+    </div>
+  </div>
+
+  <!-- ===== LOJISTA ===== -->
+  <div class="screen hidden" id="screen-lojista" style="padding:0 0 30px">
+    <div class="loj-head">
+      <span class="e">🏪</span>
+      <div><b>Painel do Lojista</b><span>Novos pedidos chegam aqui</span></div>
+    </div>
+    <div style="padding:16px" id="loj-body"></div>
+    <div style="padding:0 16px">
+      <button class="btn btn-ghost" onclick="go('success')">‹ Voltar pra loja</button>
+    </div>
+  </div>
+
+  <!-- BOTTOM NAV -->
+  <div class="bottomnav" id="bottomnav">
+    <button class="tab active" id="tab-catalog" onclick="go('catalog')">
+      <span class="ic">🏠</span>Início
+    </button>
+    <button class="tab" id="tab-cart" onclick="go('cart')">
+      <span class="ic">🛍️</span>Sacola
+      <span class="cartcount" id="cartcount">0</span>
+    </button>
+  </div>
+
+  <!-- SHEET -->
+  <div class="sheet-back" id="sheet-back" onclick="closeSheet(event)">
+    <div class="sheet" id="sheet" onclick="event.stopPropagation()"></div>
+  </div>
+
+  <div class="toast" id="toast"></div>
 </div>
 
-<!-- HERO -->
-<section class="hero" id="top">
-  <div class="blob b1"></div><div class="blob b2"></div>
-  <div class="paw p1" style="--r:-18deg"><svg><use href="#pawicon"/></svg></div>
-  <div class="paw p2" style="--r:12deg"><svg><use href="#pawicon"/></svg></div>
-  <div class="paw p3" style="--r:20deg"><svg><use href="#pawicon"/></svg></div>
-  <div class="paw p4" style="--r:-10deg"><svg><use href="#pawicon"/></svg></div>
-  <div class="wrap hero-inner">
-    <div>
-      <span class="badge-pill reveal in"><span class="dot"></span> Aberto agora · 09h às 19h</span>
-      <h1 class="reveal in" data-d="1">Cuidado e comida boa <span class="hl">na porta<svg viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 8 C50 2 150 2 198 8" stroke="currentColor" stroke-width="4" fill="none" stroke-linecap="round"/></svg></span> da sua casa</h1>
-      <p class="lead reveal in" data-d="2">O Auaufood é nutrição, banho, tosa e tudo que o seu pet precisa — com o carinho de sempre e delivery aqui em Ribeirão Preto.</p>
-      <div class="hero-actions reveal in" data-d="3">
-        <a href="https://wa.me/5516997744187?text=Ol%C3%A1!%20Quero%20fazer%20um%20pedido%20no%20Auaufood." target="_blank" rel="noopener" class="btn btn-primary"><i data-lucide="message-circle"></i> Fazer pedido</a>
-        <a href="#servicos" class="btn btn-ghost"><i data-lucide="paw-print"></i> Ver serviços</a>
-      </div>
-      <div class="trust reveal in" data-d="3">
-        <div class="trust-item"><i data-lucide="truck"></i> Delivery na sua casa</div>
-        <div class="trust-item"><i data-lucide="map-pin"></i> Ribeirão Preto</div>
-        <div class="trust-item"><i data-lucide="heart"></i> Feito com amor</div>
-      </div>
-    </div>
-    <div class="hero-art reveal in" data-d="1">
-      <div class="pet-card">
-        <div class="deliver-tag"><i data-lucide="truck"></i> Entregamos!</div>
-        <img class="big-logo" src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1782999288/82c75cd8-8ca7-448d-bdbc-4a431a75b18e_qum62u.png" alt="Logo Auaufood" style="object-fit:contain">
-        <h3>Auaufood</h3>
-        <p>Nutrição e delivery para o seu pet</p>
-        <div class="row">
-          <span class="chip"><i data-lucide="bath"></i> Banho</span>
-          <span class="chip"><i data-lucide="scissors"></i> Tosa</span>
-          <span class="chip"><i data-lucide="bone"></i> Ração</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SERVIÇOS -->
-<section class="sec-pad" id="servicos">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow"><i data-lucide="paw-print"></i> O que oferecemos</span>
-      <h2>Tudo para o seu melhor amigo</h2>
-      <p>Do banho relaxante à ração na porta de casa — cuidamos do seu pet de ponta a ponta.</p>
-    </div>
-    <div class="svc-grid">
-      <div class="svc reveal"><div class="svc-ico"><i data-lucide="bath"></i></div><h3>Banho</h3><p>Seu pet limpinho, cheiroso e feliz, com produtos que cuidam da pele e do pelo.</p></div>
-      <div class="svc reveal" data-d="1"><div class="svc-ico"><i data-lucide="scissors"></i></div><h3>Tosa</h3><p>Tosa higiênica ou na tesoura, do jeitinho que combina com o seu pet.</p></div>
-      <div class="svc reveal" data-d="2"><div class="svc-ico"><i data-lucide="bone"></i></div><h3>Produtos</h3><p>Ração, petiscos, brinquedos e acessórios das melhores marcas.</p></div>
-      <div class="svc reveal" data-d="3"><div class="svc-ico"><i data-lucide="truck"></i></div><h3>Delivery</h3><p>Pediu, chegou. Entregamos tudo direto na porta da sua casa.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- COMO FUNCIONA -->
-<section class="sec-pad" id="como">
-  <div class="wrap">
-    <div class="how sec-pad">
-      <div class="paw-bg" aria-hidden="true">
-        <svg style="top:-20px;left:-20px"><use href="#pawicon"/></svg>
-        <svg style="bottom:10px;right:30px;transform:rotate(25deg)"><use href="#pawicon"/></svg>
-        <svg style="top:40%;right:-30px"><use href="#pawicon"/></svg>
-      </div>
-      <div class="wrap" style="padding:0">
-        <div class="sec-head reveal">
-          <span class="eyebrow"><i data-lucide="sparkles"></i> Simples assim</span>
-          <h2>Peça em 3 passos</h2>
-          <p>Sem complicação: é só chamar no WhatsApp que a gente cuida do resto.</p>
-        </div>
-        <div class="steps">
-          <div class="step reveal"><div class="num">01</div><div class="step-ico"><i data-lucide="list"></i></div><h3>Escolha</h3><p>Diz o que o seu pet precisa: banho, tosa, ração ou aquele petisco favorito.</p></div>
-          <div class="step reveal" data-d="1"><div class="num">02</div><div class="step-ico"><i data-lucide="message-circle"></i></div><h3>Peça no WhatsApp</h3><p>Manda a mensagem pra gente. Confirmamos tudo rapidinho com você.</p></div>
-          <div class="step reveal" data-d="2"><div class="num">03</div><div class="step-ico"><i data-lucide="home"></i></div><h3>Receba em casa</h3><p>Seu pedido chega na porta ou agendamos o serviço no melhor horário.</p></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- POR QUE -->
-<section class="sec-pad" id="porque">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow"><i data-lucide="heart"></i> Por que o Auaufood</span>
-      <h2>Feito por quem ama pet</h2>
-    </div>
-    <div class="feats-grid">
-      <div class="feat reveal">
-        <div class="feat-ico"><i data-lucide="truck"></i></div>
-        <div><h3>Delivery de verdade</h3><p>Comodidade total: você resolve tudo sem sair de casa, aqui em Ribeirão Preto.</p></div>
-      </div>
-      <div class="feat reveal" data-d="1">
-        <div class="feat-ico"><i data-lucide="shield-check"></i></div>
-        <div><h3>Produtos de confiança</h3><p>Trabalhamos com marcas de qualidade que cuidam bem da saúde do seu pet.</p></div>
-      </div>
-      <div class="feat reveal" data-d="2">
-        <div class="feat-ico"><i data-lucide="smile"></i></div>
-        <div><h3>Atendimento carinhoso</h3><p>Cada pet é tratado como se fosse da família. Zelo e carinho em cada detalhe.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- LOCALIZAÇÃO -->
-<section class="sec-pad" id="local">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow"><i data-lucide="map-pin"></i> Onde estamos</span>
-      <h2>Venha nos visitar</h2>
-    </div>
-    <div class="local-grid reveal" data-d="1">
-      <div class="local-info">
-        <h2 style="font-size:clamp(1.6rem,3.4vw,2.2rem)">Auaufood Pet Shop</h2>
-        <div class="info-row">
-          <div class="ic"><i data-lucide="map-pin"></i></div>
-          <div><div class="lbl">Endereço</div><a class="val" href="https://maps.google.com/maps?q=R.+Niter%C3%B3i+743+Jardim+Castelo+Branco+Ribeir%C3%A3o+Preto" target="_blank" rel="noopener">R. Niterói, 743 — Jd. Castelo Branco<br>Ribeirão Preto — SP · 14090-710</a></div>
-        </div>
-        <div class="info-row">
-          <div class="ic"><i data-lucide="clock"></i></div>
-          <div><div class="lbl">Horário</div><div class="val">Todos os dias · 09h às 19h</div></div>
-        </div>
-        <div class="info-row">
-          <div class="ic"><i data-lucide="phone"></i></div>
-          <div><div class="lbl">WhatsApp</div><a class="val" href="https://wa.me/5516997744187" target="_blank" rel="noopener">(16) 99774-4187</a></div>
-        </div>
-        <a href="https://maps.google.com/maps?q=R.+Niter%C3%B3i+743+Jardim+Castelo+Branco+Ribeir%C3%A3o+Preto" target="_blank" rel="noopener" class="btn btn-teal"><i data-lucide="navigation"></i> Como chegar</a>
-      </div>
-      <div class="map-wrap">
-        <iframe title="Mapa Auaufood" src="https://maps.google.com/maps?q=R.%20Niter%C3%B3i%2C%20743%2C%20Jardim%20Castelo%20Branco%2C%20Ribeir%C3%A3o%20Preto%20-%20SP&t=&z=16&ie=UTF8&iwloc=&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="sec-pad" style="padding-top:0">
-  <div class="wrap">
-    <div class="cta reveal">
-      <div class="paw-bg" aria-hidden="true">
-        <svg style="width:90px;height:90px;top:-10px;left:20px"><use href="#pawicon"/></svg>
-        <svg style="width:70px;height:70px;bottom:-6px;right:40px;transform:rotate(20deg)"><use href="#pawicon"/></svg>
-        <svg style="width:60px;height:60px;top:30%;right:12%"><use href="#pawicon"/></svg>
-      </div>
-      <h2>Seu pet merece o melhor</h2>
-      <p>Faça seu pedido agora pelo WhatsApp e receba tudo com todo o carinho do Auaufood.</p>
-      <a href="https://wa.me/5516997744187?text=Ol%C3%A1!%20Quero%20fazer%20um%20pedido%20no%20Auaufood." target="_blank" rel="noopener" class="btn btn-primary"><i data-lucide="message-circle"></i> Pedir pelo WhatsApp</a>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="wrap">
-    <div class="foot-grid">
-      <a href="#top" class="foot-brand"><img class="logo-badge" style="width:52px;height:52px" src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1782999288/82c75cd8-8ca7-448d-bdbc-4a431a75b18e_qum62u.png" alt="Auaufood"><div><b>Auau<span>food</span></b><div style="font-size:.85rem;color:rgba(253,244,231,.7)">Nutrição e delivery para seu pet</div></div></a>
-      <div class="foot-social">
-        <a href="https://instagram.com/auaufood" target="_blank" rel="noopener" aria-label="Instagram"><i data-lucide="instagram"></i></a>
-        <a href="https://wa.me/5516997744187" target="_blank" rel="noopener" aria-label="WhatsApp"><i data-lucide="message-circle"></i></a>
-        <a href="https://maps.google.com/maps?q=R.+Niter%C3%B3i+743+Ribeir%C3%A3o+Preto" target="_blank" rel="noopener" aria-label="Mapa"><i data-lucide="map-pin"></i></a>
-      </div>
-    </div>
-    <div class="foot-bottom">
-      <span>© 2026 Auaufood. Todos os direitos reservados.</span>
-      <span>Feito com carinho por <a href="https://instagram.com/mlxmind" target="_blank" rel="noopener">MLX Mind</a></span>
-    </div>
-  </div>
-</footer>
-
-<a class="wa" href="https://wa.me/5516997744187?text=Ol%C3%A1!%20Vim%20pelo%20site%20do%20Auaufood." target="_blank" rel="noopener" aria-label="Falar no WhatsApp"><i data-lucide="message-circle"></i></a>
-
-<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 <script>
-  lucide.createIcons();
-  const header=document.getElementById('header');
-  const onScroll=()=>header.classList.toggle('scrolled',window.scrollY>30);
-  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
-  const mm=document.getElementById('mmenu');
-  document.getElementById('menuBtn').addEventListener('click',()=>mm.classList.add('open'));
-  document.getElementById('menuClose').addEventListener('click',()=>mm.classList.remove('open'));
-  mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mm.classList.remove('open')));
-  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -50px 0px'});
-  document.querySelectorAll('.reveal:not(.in)').forEach(el=>io.observe(el));
+/* ---------------- DATA ---------------- */
+const BRL = v => 'R$ ' + v.toFixed(2).replace('.',',');
+
+const PRODUCTS = [
+  {id:1, cat:'Ração', name:'Golden Fórmula Cães Adultos', desc:'Frango & arroz — a granel', emoji:'🦴', bg:'#FDEBD3', type:'granel', perKg:22.90},
+  {id:2, cat:'Ração', name:'Premier Gatos Castrados', desc:'Salmão — a granel', emoji:'🐟', bg:'#DCEEF3', type:'granel', perKg:38.50},
+  {id:3, cat:'Ração', name:'Golden Special — Saco 15kg', desc:'Pacote fechado', emoji:'🎒', bg:'#EAEDC9', type:'unit', price:189.90},
+  {id:4, cat:'Ração', name:'Whiskas Sachê Gatos', desc:'Caixa com 15 sachês', emoji:'🐱', bg:'#FDEBD3', type:'unit', price:34.90},
+  {id:5, cat:'Higiene', name:'Shampoo Pet Clean 500ml', desc:'Neutro, pele sensível', emoji:'🧴', bg:'#DCEEF3', type:'unit', price:27.90},
+  {id:6, cat:'Higiene', name:'Tapete Higiênico', desc:'Pacote com 30 unidades', emoji:'🧻', bg:'#EAEDC9', type:'unit', price:49.90},
+  {id:7, cat:'Brinquedos', name:'Bolinha Maciça', desc:'Borracha atóxica', emoji:'🎾', bg:'#FDEBD3', type:'unit', price:12.90},
+  {id:8, cat:'Brinquedos', name:'Osso de Nylon', desc:'Sabor bacon', emoji:'🦴', bg:'#DCEEF3', type:'unit', price:24.90},
+  {id:9, cat:'Acessórios', name:'Coleira Ajustável', desc:'Tam. M — várias cores', emoji:'🐕', bg:'#EAEDC9', type:'unit', price:32.90},
+  {id:10, cat:'Acessórios', name:'Comedouro Inox Duplo', desc:'Base antiderrapante', emoji:'🥣', bg:'#FDEBD3', type:'unit', price:44.90},
+];
+const CATS = [
+  {name:'Tudo', e:'🐾'},{name:'Ração', e:'🦴'},{name:'Higiene', e:'🧴'},{name:'Brinquedos', e:'🎾'},{name:'Acessórios', e:'🎀'}
+];
+const BAIRROS = [
+  {name:'Centro', fee:5},{name:'Jardim Sumaré', fee:6},{name:'Alto da Boa Vista', fee:7},
+  {name:'Ribeirânia', fee:8},{name:'City Ribeirão', fee:9},{name:'Nova Aliança', fee:8}
+];
+const FREE_OVER = 99;
+const WEIGHTS = [100,250,500,1000];
+
+let cart = [];
+let currentCat = 'Tudo';
+let payMethod = 'pix';
+let lastOrder = null;
+
+/* ---------------- NAV ---------------- */
+const screens = ['catalog','cart','checkout','pix','success','lojista'];
+function go(s){
+  screens.forEach(x=>document.getElementById('screen-'+x).classList.add('hidden'));
+  document.getElementById('screen-'+s).classList.remove('hidden');
+  document.getElementById('screen-'+s).scrollTop = 0;
+  const nav = document.getElementById('bottomnav');
+  const bar = document.getElementById('topbar');
+  const showNav = (s==='catalog'||s==='cart');
+  nav.style.display = showNav ? 'flex' : 'none';
+  bar.style.display = (s==='lojista') ? 'none' : 'flex';
+  document.getElementById('tab-catalog').classList.toggle('active', s==='catalog');
+  document.getElementById('tab-cart').classList.toggle('active', s==='cart');
+  if(s==='cart') renderCart();
+  if(s==='checkout') renderCheckout();
+}
+
+/* ---------------- CATALOG ---------------- */
+function renderCats(){
+  document.getElementById('cats').innerHTML = CATS.map(c=>
+    `<button class="chip ${c.name===currentCat?'active':''}" onclick="setCat('${c.name}')"><span class="e">${c.e}</span>${c.name}</button>`
+  ).join('');
+}
+function setCat(c){currentCat=c;renderCats();renderProducts();}
+function renderProducts(){
+  const list = PRODUCTS.filter(p=>currentCat==='Tudo'||p.cat===currentCat);
+  document.getElementById('products').innerHTML = list.map(p=>{
+    const priceHtml = p.type==='granel'
+      ? `<div class="price">${BRL(p.perKg)}<small>/kg</small></div>`
+      : `<div class="price">${BRL(p.price)}</div>`;
+    const badge = p.type==='granel'
+      ? `<span class="badge granel">⚖️ A granel</span>`
+      : `<span class="badge pacote">📦 Pacote</span>`;
+    return `<div class="card">
+      <div class="thumb" style="background:${p.bg}">${p.emoji}</div>
+      <div class="info">
+        <h3>${p.name}</h3>
+        <div class="desc">${p.desc}</div>
+        ${badge}
+        <div class="foot">${priceHtml}
+          <button class="addbtn" onclick="openSheet(${p.id})">+</button>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+/* ---------------- SHEET (add product) ---------------- */
+let sheetSel = {weight:500, qty:1};
+function openSheet(id){
+  const p = PRODUCTS.find(x=>x.id===id);
+  sheetSel = {weight:500, qty:1};
+  const sheet = document.getElementById('sheet');
+  let body = `<div class="grab"></div>
+    <div class="bigthumb" style="background:${p.bg}">${p.emoji}</div>
+    <h2>${p.name}</h2>
+    <div class="sdesc">${p.desc}</div>`;
+  if(p.type==='granel'){
+    body += `<span class="wlabel">Escolha a quantidade</span>
+      <div class="weights" id="weights">
+        ${WEIGHTS.map(w=>`<button class="wchip ${w===500?'active':''}" onclick="setWeight(${w},${p.id})">${w<1000?w+'g':'1kg'}</button>`).join('')}
+      </div>`;
+  } else {
+    body += `<span class="wlabel">Quantidade</span>
+      <div class="stepper">
+        <button onclick="stepQty(-1,${p.id})">−</button>
+        <span id="qtyval">1</span>
+        <button onclick="stepQty(1,${p.id})">+</button>
+      </div>`;
+  }
+  body += `<div class="sheet-total">
+      <span style="font-weight:800;color:var(--ink-soft);font-size:14px">Total do item</span>
+      <span class="price" id="sheet-price"></span>
+    </div>
+    <button class="btn btn-primary" onclick="addFromSheet(${p.id})">Adicionar à sacola 🛍️</button>`;
+  sheet.innerHTML = body;
+  updateSheetPrice(p.id);
+  document.getElementById('sheet-back').classList.add('show');
+}
+function closeSheet(e){ document.getElementById('sheet-back').classList.remove('show'); }
+function setWeight(w,id){ sheetSel.weight=w; document.querySelectorAll('#weights .wchip').forEach(c=>c.classList.remove('active')); event.target.classList.add('active'); updateSheetPrice(id);}
+function stepQty(d,id){ sheetSel.qty=Math.max(1,sheetSel.qty+d); document.getElementById('qtyval').textContent=sheetSel.qty; updateSheetPrice(id);}
+function itemPrice(p){ return p.type==='granel' ? p.perKg*(sheetSel.weight/1000) : p.price*sheetSel.qty; }
+function updateSheetPrice(id){ const p=PRODUCTS.find(x=>x.id===id); document.getElementById('sheet-price').textContent=BRL(itemPrice(p)); }
+function addFromSheet(id){
+  const p=PRODUCTS.find(x=>x.id===id);
+  const line = p.type==='granel'
+    ? {name:p.name, emoji:p.emoji, bg:p.bg, qtyLabel:(sheetSel.weight<1000?sheetSel.weight+'g':(sheetSel.weight/1000)+'kg'), price:itemPrice(p)}
+    : {name:p.name, emoji:p.emoji, bg:p.bg, qtyLabel:sheetSel.qty+' un', price:itemPrice(p)};
+  cart.push(line);
+  closeSheet();
+  updateCartCount(true);
+  toast(`${p.name} adicionado 🐾`);
+}
+
+/* ---------------- CART COUNT ---------------- */
+function updateCartCount(pulse){
+  const el=document.getElementById('cartcount');
+  el.textContent=cart.length;
+  el.classList.toggle('show',cart.length>0);
+  if(pulse){el.classList.remove('pulse');void el.offsetWidth;el.classList.add('pulse');}
+}
+
+/* ---------------- CART ---------------- */
+function subtotal(){ return cart.reduce((s,i)=>s+i.price,0); }
+function deliveryFee(){
+  const b = document.getElementById('f-bairro') ? document.getElementById('f-bairro').value : '';
+  if(!b) return null;
+  if(subtotal()>=FREE_OVER) return 0;
+  const found = BAIRROS.find(x=>x.name===b);
+  return found ? found.fee : null;
+}
+function renderCart(){
+  const body=document.getElementById('cart-body');
+  if(cart.length===0){
+    body.innerHTML=`<div class="empty"><span class="e">🐕</span><p>Sua sacola está vazia</p>
+      <button class="btn btn-primary" style="margin-top:18px;max-width:220px" onclick="go('catalog')">Ver produtos</button></div>`;
+    return;
+  }
+  const sub=subtotal();
+  const freeMsg = sub<FREE_OVER
+    ? `<div class="freebar">🚚 Faltam ${BRL(FREE_OVER-sub)} para <b>frete grátis!</b></div>`
+    : `<div class="freebar">🎉 Você ganhou <b>frete grátis!</b></div>`;
+  body.innerHTML = cart.map((i,idx)=>`
+    <div class="citem">
+      <div class="cth" style="background:${i.bg}">${i.emoji}</div>
+      <div class="cin"><h4>${i.name}</h4><div class="q">${i.qtyLabel}</div></div>
+      <div class="cpr">${BRL(i.price)}</div>
+      <button class="rm" onclick="removeItem(${idx})">✕</button>
+    </div>`).join('')
+    + freeMsg
+    + `<div class="summary">
+        <div class="srow"><span>Subtotal</span><span>${BRL(sub)}</span></div>
+        <div class="srow"><span>Entrega</span><span>calculada no checkout</span></div>
+        <div class="srow total"><span>Total</span><span>${BRL(sub)}</span></div>
+      </div>
+      <button class="btn btn-primary" style="margin-top:16px" onclick="go('checkout')">Ir para entrega ›</button>`;
+}
+function removeItem(idx){ cart.splice(idx,1); updateCartCount(); renderCart(); }
+
+/* ---------------- CHECKOUT ---------------- */
+function renderCheckout(){
+  const sel=document.getElementById('f-bairro');
+  if(sel.options.length<=1){
+    BAIRROS.forEach(b=>{ const o=document.createElement('option'); o.value=b.name; o.textContent=`${b.name} — ${BRL(b.fee)}`; sel.appendChild(o); });
+  }
+  updateCheckoutTotals();
+}
+function updateCheckoutTotals(){
+  const sub=subtotal(); const fee=deliveryFee();
+  document.getElementById('co-sub').textContent=BRL(sub);
+  document.getElementById('co-fee').textContent = fee===null ? 'Escolha o bairro' : (fee===0?'Grátis 🎉':BRL(fee));
+  document.getElementById('co-total').textContent = BRL(sub + (fee||0));
+}
+function selectPay(m){
+  payMethod=m;
+  document.querySelectorAll('.pay-opt').forEach(o=>o.classList.toggle('active',o.dataset.pay===m));
+  document.getElementById('co-btn').textContent = m==='entrega' ? 'Confirmar pedido' : 'Ir para pagamento';
+}
+// recalc fee when bairro changes
+const origRenderCart = renderCart;
+document.addEventListener('input',e=>{ if(e.target.id==='f-bairro') updateCheckoutTotals(); });
+document.addEventListener('change',e=>{ if(e.target.id==='f-bairro') updateCheckoutTotals(); });
+
+function confirmCheckout(){
+  const nome=document.getElementById('f-nome').value.trim();
+  const bairro=document.getElementById('f-bairro').value;
+  if(!nome){ toast('Preencha seu nome 🐾'); document.getElementById('f-nome').focus(); return; }
+  if(!bairro){ toast('Escolha seu bairro 🐾'); return; }
+  const sub=subtotal(); const fee=deliveryFee()||0;
+  lastOrder = {
+    nome, bairro,
+    rua:document.getElementById('f-rua').value||'—',
+    num:document.getElementById('f-num').value||'',
+    wpp:document.getElementById('f-wpp').value||'—',
+    items:[...cart], sub, fee, total:sub+fee, pay:payMethod,
+    number:'#'+Math.floor(1000+Math.random()*9000)
+  };
+  if(payMethod==='entrega'){ finishOrder(false); }
+  else { startPix(); }
+}
+
+/* ---------------- PIX ---------------- */
+function startPix(){
+  go('pix');
+  document.getElementById('pix-value').textContent=BRL(lastOrder.total);
+  document.getElementById('qr').querySelector('svg')?.remove();
+  document.getElementById('qr').insertAdjacentHTML('afterbegin', makeQR());
+  const wait=document.getElementById('pix-wait');
+  wait.innerHTML=`<div class="paws"><span>🐾</span><span>🐾</span><span>🐾</span></div>Aguardando pagamento…`;
+  wait.style.color='var(--orange-deep)';
+  clearTimeout(window._pixT);
+  window._pixT=setTimeout(()=>{
+    wait.innerHTML=`<span style="font-size:20px">✅</span> Pagamento aprovado!`;
+    wait.style.color='var(--green)';
+    setTimeout(()=>finishOrder(true),900);
+  },5000);
+}
+function makeQR(){
+  // decorative fake QR — deterministic-ish grid
+  const n=21, cell=100/n; let r='';
+  const finder=(x,y)=>{r+=`<rect x="${x*cell}" y="${y*cell}" width="${cell*7}" height="${cell*7}" rx="${cell}" fill="#3D2A20"/><rect x="${(x+1)*cell}" y="${(y+1)*cell}" width="${cell*5}" height="${cell*5}" rx="${cell*.6}" fill="#fff"/><rect x="${(x+2)*cell}" y="${(y+2)*cell}" width="${cell*3}" height="${cell*3}" rx="${cell*.4}" fill="#3D2A20"/>`;};
+  let seed=7;
+  const rnd=()=>{seed=(seed*9301+49297)%233280;return seed/233280;};
+  for(let y=0;y<n;y++)for(let x=0;x<n;x++){
+    if((x<7&&y<7)||(x>n-8&&y<7)||(x<7&&y>n-8))continue;
+    if(rnd()>0.55) r+=`<rect x="${x*cell}" y="${y*cell}" width="${cell*.92}" height="${cell*.92}" rx="${cell*.28}" fill="#3D2A20"/>`;
+  }
+  finder(0,0);finder(n-7,0);finder(0,n-7);
+  return `<svg viewBox="0 0 100 100">${r}</svg>`;
+}
+function copyPix(btn){ btn.textContent='Copiado ✓'; setTimeout(()=>btn.textContent='Copiar',1500); }
+
+/* ---------------- SUCCESS ---------------- */
+function finishOrder(paid){
+  go('success');
+  const o=lastOrder;
+  document.getElementById('succ-title').textContent = paid ? 'Pagamento confirmado! 🎉' : 'Pedido confirmado! 🎉';
+  document.getElementById('succ-sub').innerHTML = paid
+    ? 'Pix aprovado e pedido enviado pra loja.<br>Acompanhe tudo pelo WhatsApp.'
+    : 'Enviamos seu pedido pra loja.<br>Você vai pagar na entrega.';
+  const payLabel = o.pay==='pix'?'Pix (aprovado)':o.pay==='cartao'?'Cartão (aprovado)':'Na entrega';
+  document.getElementById('succ-card').innerHTML=`
+    <div class="on"><b>Pedido ${o.number}</b><span>${paid?'Pago':'A pagar'}</span></div>
+    ${o.items.map(i=>`<div class="oi"><span>${i.qtyLabel} · ${i.name}</span><span>${BRL(i.price)}</span></div>`).join('')}
+    <div class="oi" style="margin-top:6px"><span>Entrega — ${o.bairro}</span><span>${o.fee===0?'Grátis':BRL(o.fee)}</span></div>
+    <div class="oi" style="font-family:'Baloo 2';font-weight:800;color:var(--ink);font-size:15px;margin-top:8px;border-top:1px dashed var(--line);padding-top:10px"><span>Total</span><span>${BRL(o.total)}</span></div>
+    <div class="oi" style="margin-top:8px"><span>Pagamento</span><span>${payLabel}</span></div>`;
+  updateCartCount();
+}
+
+/* ---------------- LOJISTA ---------------- */
+function openLojista(){
+  go('lojista');
+  const o=lastOrder;
+  const paid = o.pay!=='entrega';
+  const wppDigits = (o.wpp||'').replace(/\D/g,'') || '5516999999999';
+  document.getElementById('loj-body').innerHTML=`
+    <div class="neworder">
+      <div class="nh"><b>🔔 Novo pedido ${o.number}</b><span class="t">agora mesmo</span></div>
+      <div class="nb">
+        <div class="cust">${o.nome}</div>
+        <div class="addr">${o.rua}, ${o.num} — ${o.bairro}</div>
+        <span class="paytag ${paid?'pago':'entrega'}">${paid?'✓ Pago via '+(o.pay==='pix'?'Pix':'Cartão'):'🛵 Paga na entrega'}</span>
+        <div class="liw">
+          ${o.items.map(i=>`<div class="li"><span>${i.qtyLabel} · ${i.name}</span><span>${BRL(i.price)}</span></div>`).join('')}
+          <div class="li"><span>Entrega</span><span>${o.fee===0?'Grátis':BRL(o.fee)}</span></div>
+          <div class="li" style="font-weight:800;border-top:1px dashed #E4D6C4;padding-top:6px;margin-top:4px"><span>Total</span><span>${BRL(o.total)}</span></div>
+        </div>
+        <div class="statusflow">
+          <button onclick="lojStatus(this,0)">Recebido</button>
+          <button onclick="lojStatus(this,1)">Preparando</button>
+          <button onclick="lojStatus(this,2)">Saiu</button>
+          <button onclick="lojStatus(this,3)">Entregue</button>
+        </div>
+        <button class="wa-btn" onclick="toast('Abriria o WhatsApp do cliente 📲')">💬 Chamar ${o.nome.split(' ')[0]} no WhatsApp</button>
+      </div>
+    </div>
+    <div style="text-align:center;color:var(--ink-soft);font-weight:700;font-size:12.5px;padding:4px 10px 14px">
+      No sistema real, este painel fica no celular ou computador do dono e cada novo pedido chega com um alerta. 🔔
+    </div>`;
+}
+function lojStatus(btn,i){
+  const btns=btn.parentElement.querySelectorAll('button');
+  btns.forEach((b,idx)=>b.classList.toggle('done',idx<=i));
+  const labels=['Pedido recebido ✅','Preparando o pedido 👨‍🍳','Saiu para entrega 🛵','Entregue! 🎉'];
+  toast(labels[i]);
+}
+
+/* ---------------- UTIL ---------------- */
+function toast(msg){
+  const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show');
+  clearTimeout(window._toastT); window._toastT=setTimeout(()=>t.classList.remove('show'),1900);
+}
+function resetAll(){ cart=[]; lastOrder=null; payMethod='pix'; currentCat='Tudo';
+  document.querySelectorAll('.pay-opt').forEach(o=>o.classList.toggle('active',o.dataset.pay==='pix'));
+  ['f-nome','f-wpp','f-rua','f-num','f-comp'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('f-bairro').value='';
+  updateCartCount(); renderCats(); renderProducts(); go('catalog');
+}
+
+/* ---------------- INIT ---------------- */
+renderCats(); renderProducts(); go('catalog');
 </script>
 </body>
 </html>
