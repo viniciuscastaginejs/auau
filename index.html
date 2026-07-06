@@ -21,212 +21,140 @@
     --line:#F0E3D2;
     --green:#3E9B54;
     --green-soft:#E4F4E7;
+    --wa:#25D366;
     --shadow:0 8px 24px rgba(61,42,32,.10);
     --shadow-lg:0 16px 40px rgba(61,42,32,.16);
     --radius:20px;
-    --radius-sm:14px;
   }
   *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
   html,body{height:100%}
   body{
     font-family:'Nunito',system-ui,sans-serif;
-    background:#E9DFCF;
-    color:var(--ink);
-    display:flex;justify-content:center;
-    overflow:hidden;
+    background:#E9DFCF;color:var(--ink);
+    display:flex;justify-content:center;overflow:hidden;
   }
-  /* phone shell */
   #app{
     width:100%;max-width:440px;height:100dvh;
-    background:var(--bg);
-    position:relative;display:flex;flex-direction:column;
-    box-shadow:0 0 60px rgba(0,0,0,.18);
-    overflow:hidden;
+    background:var(--bg);position:relative;display:flex;flex-direction:column;
+    box-shadow:0 0 60px rgba(0,0,0,.18);overflow:hidden;
   }
   h1,h2,h3,.brand,.price,.btn,.chip,.tab{font-family:'Baloo 2',cursive}
+  svg{display:block}
+  .ic{width:1em;height:1em;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;fill:none}
 
-  /* ---------- Top bar ---------- */
   .topbar{
-    flex:0 0 auto;
-    display:flex;align-items:center;gap:12px;
-    padding:14px 18px 12px;
-    background:linear-gradient(180deg,#fff 0%,#fffdf8 100%);
-    border-bottom:1px solid var(--line);
-    position:relative;z-index:20;
+    flex:0 0 auto;display:flex;align-items:center;gap:12px;
+    padding:14px 18px 12px;background:linear-gradient(180deg,#fff 0%,#fffdf8 100%);
+    border-bottom:1px solid var(--line);position:relative;z-index:20;
   }
   .topbar img{width:44px;height:44px;border-radius:50%;box-shadow:0 2px 8px rgba(61,42,32,.18)}
-  .topbar .tt{line-height:1.05}
-  .topbar .tt b{font-family:'Baloo 2';font-weight:800;font-size:19px;color:var(--ink);display:block}
+  .topbar .tt b{font-family:'Baloo 2';font-weight:800;font-size:19px;color:var(--ink);display:block;line-height:1.05}
   .topbar .tt span{font-size:12px;color:var(--orange-deep);font-weight:700}
-  .topbar .region{
-    margin-left:auto;display:flex;align-items:center;gap:5px;
-    background:var(--sky);color:#2C6B7E;font-weight:700;font-size:11.5px;
-    padding:6px 10px;border-radius:20px;
-  }
+  .topbar .region{margin-left:auto;display:flex;align-items:center;gap:5px;background:var(--sky);color:#2C6B7E;font-weight:700;font-size:11.5px;padding:6px 10px;border-radius:20px}
+  .topbar .region .ic{font-size:13px}
 
-  /* ---------- Screens ---------- */
-  .screen{
-    flex:1 1 auto;overflow-y:auto;overflow-x:hidden;
-    -webkit-overflow-scrolling:touch;
-    padding:16px 16px 120px;
-    animation:fade .28s ease;
-  }
+  .screen{flex:1 1 auto;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;padding:16px 16px 120px;animation:fade .28s ease}
   @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
   .screen::-webkit-scrollbar{display:none}
   .hidden{display:none!important}
 
-  /* ---------- Hero / categories ---------- */
-  .hero{
-    background:linear-gradient(135deg,var(--orange) 0%,#FFB44E 100%);
-    border-radius:24px;padding:18px 18px 20px;color:#fff;
-    box-shadow:var(--shadow);margin-bottom:18px;position:relative;overflow:hidden;
-  }
-  .hero .paw{position:absolute;font-size:120px;opacity:.14;right:-18px;bottom:-34px;transform:rotate(-15deg)}
+  .hero{background:linear-gradient(135deg,var(--orange) 0%,#FFB44E 100%);border-radius:24px;padding:18px 18px 20px;color:#fff;box-shadow:var(--shadow);margin-bottom:18px;position:relative;overflow:hidden}
+  .hero .pawbg{position:absolute;right:-14px;bottom:-26px;width:132px;height:132px;color:#fff;opacity:.16;transform:rotate(-12deg)}
   .hero h2{font-size:22px;font-weight:800;line-height:1.1;margin-bottom:4px;position:relative}
   .hero p{font-size:13.5px;font-weight:600;opacity:.95;position:relative;max-width:78%}
 
   .cats{display:flex;gap:9px;overflow-x:auto;padding:2px 2px 8px;margin:0 -2px 6px}
   .cats::-webkit-scrollbar{display:none}
-  .chip{
-    flex:0 0 auto;border:none;cursor:pointer;
-    background:#fff;color:var(--ink-soft);font-weight:700;font-size:14px;
-    padding:9px 16px;border-radius:22px;box-shadow:var(--shadow);
-    display:flex;align-items:center;gap:6px;transition:.18s;
-  }
+  .chip{flex:0 0 auto;border:none;cursor:pointer;background:#fff;color:var(--ink-soft);font-weight:700;font-size:14px;padding:9px 15px;border-radius:22px;box-shadow:var(--shadow);display:flex;align-items:center;gap:7px;transition:.18s}
   .chip.active{background:var(--ink);color:#fff}
-  .chip .e{font-size:16px}
+  .chip .ic{font-size:16px}
 
   .sechead{font-family:'Baloo 2';font-weight:700;font-size:16px;margin:14px 4px 10px;color:var(--ink)}
 
-  /* ---------- Product card ---------- */
-  .card{
-    background:var(--card);border-radius:var(--radius);padding:12px;
-    box-shadow:var(--shadow);display:flex;gap:13px;align-items:center;margin-bottom:12px;
-    border:1px solid #FBF2E6;
-  }
-  .thumb{
-    flex:0 0 76px;width:76px;height:76px;border-radius:16px;
-    display:grid;place-items:center;font-size:38px;
-  }
+  .card{background:var(--card);border-radius:var(--radius);padding:12px;box-shadow:var(--shadow);display:flex;gap:13px;align-items:center;margin-bottom:12px;border:1px solid #FBF2E6}
+  .thumb{flex:0 0 76px;width:76px;height:76px;border-radius:16px;display:grid;place-items:center}
+  .thumb .ic{font-size:40px;color:var(--ink);stroke-width:1.7}
   .card .info{flex:1 1 auto;min-width:0}
   .card .info h3{font-family:'Nunito';font-weight:800;font-size:15px;line-height:1.15;color:var(--ink)}
   .card .info .desc{font-size:12px;color:var(--ink-soft);margin-top:2px;font-weight:600}
-  .badge{
-    display:inline-block;font-family:'Baloo 2';font-weight:700;font-size:10.5px;
-    padding:2px 8px;border-radius:10px;margin-top:6px;
-  }
+  .badge{display:inline-flex;align-items:center;gap:4px;font-family:'Baloo 2';font-weight:700;font-size:10.5px;padding:3px 8px;border-radius:10px;margin-top:6px}
+  .badge .ic{font-size:12px}
   .badge.granel{background:var(--cream);color:#6E7A1E}
   .badge.pacote{background:var(--sky);color:#2C6B7E}
   .card .foot{display:flex;align-items:center;justify-content:space-between;margin-top:8px}
   .price{font-family:'Baloo 2';font-weight:800;font-size:17px;color:var(--ink)}
   .price small{font-family:'Nunito';font-weight:700;font-size:11px;color:var(--ink-soft)}
-  .addbtn{
-    border:none;cursor:pointer;background:var(--orange);color:#fff;
-    width:38px;height:38px;border-radius:12px;font-size:22px;font-weight:800;
-    display:grid;place-items:center;box-shadow:0 4px 10px rgba(243,148,30,.4);
-    transition:transform .12s;
-  }
+  .addbtn{border:none;cursor:pointer;background:var(--orange);color:#fff;width:38px;height:38px;border-radius:12px;display:grid;place-items:center;box-shadow:0 4px 10px rgba(243,148,30,.4);transition:transform .12s}
+  .addbtn .ic{font-size:20px;stroke-width:2.6}
   .addbtn:active{transform:scale(.88)}
 
-  /* ---------- Bottom nav ---------- */
-  .bottomnav{
-    position:absolute;bottom:0;left:0;right:0;height:74px;
-    background:#fff;border-top:1px solid var(--line);
-    display:flex;z-index:30;padding-bottom:env(safe-area-inset-bottom);
-    box-shadow:0 -6px 20px rgba(61,42,32,.06);
-  }
-  .tab{
-    flex:1;border:none;background:none;cursor:pointer;
-    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
-    color:#B9A995;font-weight:700;font-size:11.5px;position:relative;
-  }
-  .tab .ic{font-size:22px}
+  .bottomnav{position:absolute;bottom:0;left:0;right:0;height:74px;background:#fff;border-top:1px solid var(--line);display:flex;z-index:30;padding-bottom:env(safe-area-inset-bottom);box-shadow:0 -6px 20px rgba(61,42,32,.06)}
+  .tab{flex:1;border:none;background:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:#B9A995;font-weight:700;font-size:11.5px;position:relative}
+  .tab .ic{font-size:23px}
   .tab.active{color:var(--orange-deep)}
-  .cartcount{
-    position:absolute;top:12px;left:calc(50% + 8px);
-    background:var(--ink);color:#fff;font-family:'Baloo 2';font-weight:700;
-    font-size:11px;min-width:19px;height:19px;border-radius:10px;
-    display:grid;place-items:center;padding:0 5px;transform:scale(0);transition:transform .2s;
-  }
+  .cartcount{position:absolute;top:11px;left:calc(50% + 9px);background:var(--ink);color:#fff;font-family:'Baloo 2';font-weight:700;font-size:11px;min-width:19px;height:19px;border-radius:10px;display:grid;place-items:center;padding:0 5px;transform:scale(0);transition:transform .2s}
   .cartcount.show{transform:scale(1)}
   @keyframes pop{0%{transform:scale(1)}40%{transform:scale(1.35)}100%{transform:scale(1)}}
   .cartcount.pulse{animation:pop .35s}
 
-  /* ---------- Buttons ---------- */
-  .btn{
-    width:100%;border:none;cursor:pointer;font-family:'Baloo 2';font-weight:700;
-    font-size:17px;padding:15px;border-radius:16px;transition:transform .12s,filter .12s;
-  }
+  .btn{width:100%;border:none;cursor:pointer;font-family:'Baloo 2';font-weight:700;font-size:17px;padding:15px;border-radius:16px;transition:transform .12s;display:flex;align-items:center;justify-content:center;gap:8px}
+  .btn .ic{font-size:19px}
   .btn:active{transform:scale(.98)}
   .btn-primary{background:var(--orange);color:#fff;box-shadow:0 8px 18px rgba(243,148,30,.35)}
   .btn-dark{background:var(--ink);color:#fff}
   .btn-ghost{background:#fff;color:var(--ink);border:1.5px solid var(--line)}
-  .btn:disabled{opacity:.5;filter:grayscale(.3)}
 
-  /* ---------- Sheet (granel weight / product) ---------- */
-  .sheet-back{
-    position:absolute;inset:0;background:rgba(45,30,22,.5);z-index:50;
-    display:flex;align-items:flex-end;opacity:0;pointer-events:none;transition:opacity .25s;
-  }
+  .sheet-back{position:absolute;inset:0;background:rgba(45,30,22,.5);z-index:50;display:flex;align-items:flex-end;opacity:0;pointer-events:none;transition:opacity .25s}
   .sheet-back.show{opacity:1;pointer-events:auto}
-  .sheet{
-    width:100%;background:#fff;border-radius:26px 26px 0 0;padding:8px 20px 26px;
-    transform:translateY(100%);transition:transform .3s cubic-bezier(.2,.8,.2,1);max-height:88%;overflow-y:auto;
-  }
+  .sheet{width:100%;background:#fff;border-radius:26px 26px 0 0;padding:8px 20px 26px;transform:translateY(100%);transition:transform .3s cubic-bezier(.2,.8,.2,1);max-height:90%;overflow-y:auto}
   .sheet-back.show .sheet{transform:none}
   .grab{width:44px;height:5px;background:#E4D6C4;border-radius:3px;margin:8px auto 16px}
-  .sheet .bigthumb{width:100%;height:150px;border-radius:20px;display:grid;place-items:center;font-size:74px;margin-bottom:14px}
+  .sheet .bigthumb{width:100%;height:150px;border-radius:20px;display:grid;place-items:center;margin-bottom:14px}
+  .sheet .bigthumb .ic{font-size:82px;color:var(--ink);stroke-width:1.6}
   .sheet h2{font-size:21px;font-weight:800}
   .sheet .sdesc{color:var(--ink-soft);font-weight:600;font-size:13.5px;margin:4px 0 16px}
   .wlabel{font-weight:800;font-size:13px;color:var(--ink-soft);margin-bottom:9px;display:block}
-  .weights{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:18px}
-  .wchip{
-    border:1.5px solid var(--line);background:#fff;cursor:pointer;
-    font-family:'Baloo 2';font-weight:700;font-size:15px;color:var(--ink);
-    padding:11px 16px;border-radius:14px;transition:.15s;flex:1;min-width:70px;text-align:center;
-  }
-  .wchip.active{background:var(--orange-soft);border-color:var(--orange);color:var(--orange-deep)}
+  .graminput{display:flex;align-items:center;border:1.5px solid var(--orange);background:var(--orange-soft);border-radius:16px;padding:6px 8px 6px 16px;margin-bottom:12px}
+  .graminput input{flex:1;border:none;background:none;outline:none;font-family:'Baloo 2';font-weight:800;font-size:26px;color:var(--ink);width:100%}
+  .graminput input::-webkit-outer-spin-button,.graminput input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+  .graminput .unit{font-family:'Baloo 2';font-weight:800;font-size:20px;color:var(--orange-deep);padding:0 8px}
+  .quickw{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+  .qw{border:1.5px solid var(--line);background:#fff;cursor:pointer;font-family:'Baloo 2';font-weight:700;font-size:13.5px;color:var(--ink-soft);padding:8px 14px;border-radius:12px;flex:1;min-width:64px;text-align:center;transition:.15s}
+  .qw.active{background:var(--cream);border-color:#C7CE86;color:#57620F}
   .stepper{display:flex;align-items:center;gap:16px;justify-content:center;margin-bottom:18px}
-  .stepper button{
-    width:46px;height:46px;border-radius:14px;border:1.5px solid var(--line);background:#fff;
-    font-size:26px;font-weight:800;cursor:pointer;color:var(--ink);display:grid;place-items:center;
-  }
+  .stepper button{width:46px;height:46px;border-radius:14px;border:1.5px solid var(--line);background:#fff;cursor:pointer;color:var(--ink);display:grid;place-items:center}
+  .stepper button .ic{font-size:22px;stroke-width:2.6}
   .stepper span{font-family:'Baloo 2';font-weight:800;font-size:26px;min-width:44px;text-align:center}
   .sheet-total{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
   .sheet-total .price{font-size:26px}
 
-  /* ---------- Cart ---------- */
-  .empty{text-align:center;padding:60px 20px;color:var(--ink-soft)}
-  .empty .e{font-size:64px;display:block;margin-bottom:12px}
+  .empty{text-align:center;padding:56px 20px;color:var(--ink-soft)}
+  .empty .ic{font-size:66px;color:#D9C7B4;margin:0 auto 12px}
   .empty p{font-weight:700;font-size:15px}
   .citem{background:#fff;border-radius:16px;padding:11px;display:flex;gap:11px;align-items:center;margin-bottom:10px;box-shadow:var(--shadow)}
-  .citem .cth{width:52px;height:52px;border-radius:12px;display:grid;place-items:center;font-size:26px;flex:0 0 52px}
+  .citem .cth{width:52px;height:52px;border-radius:12px;display:grid;place-items:center;flex:0 0 52px}
+  .citem .cth .ic{font-size:28px;color:var(--ink);stroke-width:1.7}
   .citem .cin{flex:1;min-width:0}
   .citem .cin h4{font-family:'Nunito';font-weight:800;font-size:14px}
   .citem .cin .q{font-size:12px;color:var(--ink-soft);font-weight:700;margin-top:1px}
   .citem .cpr{font-family:'Baloo 2';font-weight:800;font-size:15px}
-  .citem .rm{background:none;border:none;color:#C9B7A4;font-size:20px;cursor:pointer;padding:2px 4px}
+  .citem .rm{background:none;border:none;color:#C9B7A4;cursor:pointer;padding:2px 4px;display:grid;place-items:center}
+  .citem .rm .ic{font-size:18px}
   .summary{background:#fff;border-radius:18px;padding:16px;box-shadow:var(--shadow);margin-top:6px}
   .srow{display:flex;justify-content:space-between;font-weight:700;font-size:14px;color:var(--ink-soft);margin-bottom:9px}
   .srow.total{color:var(--ink);font-family:'Baloo 2';font-weight:800;font-size:20px;border-top:1px dashed var(--line);padding-top:12px;margin-top:3px}
-  .freebar{background:var(--green-soft);color:var(--green);font-weight:700;font-size:12.5px;padding:9px 12px;border-radius:12px;margin:10px 0;text-align:center}
 
-  /* ---------- Forms ---------- */
   .field{margin-bottom:13px}
   .field label{display:block;font-weight:800;font-size:12.5px;color:var(--ink-soft);margin-bottom:6px;margin-left:2px}
-  .field input,.field select{
-    width:100%;border:1.5px solid var(--line);background:#fff;border-radius:14px;
-    padding:13px 14px;font-family:'Nunito';font-weight:700;font-size:15px;color:var(--ink);outline:none;transition:.15s;
-  }
-  .field input:focus,.field select:focus{border-color:var(--orange);box-shadow:0 0 0 3px var(--orange-soft)}
+  .field input{width:100%;border:1.5px solid var(--line);background:#fff;border-radius:14px;padding:13px 14px;font-family:'Nunito';font-weight:700;font-size:15px;color:var(--ink);outline:none;transition:.15s}
+  .field input:focus{border-color:var(--orange);box-shadow:0 0 0 3px var(--orange-soft)}
   .row2{display:flex;gap:10px}
   .row2 .field{flex:1}
-  .pay-opt{
-    display:flex;align-items:center;gap:12px;background:#fff;border:1.5px solid var(--line);
-    border-radius:16px;padding:14px;margin-bottom:10px;cursor:pointer;transition:.15s;
-  }
+  .pay-opt{display:flex;align-items:center;gap:12px;background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:14px;margin-bottom:10px;cursor:pointer;transition:.15s}
   .pay-opt.active{border-color:var(--orange);background:var(--orange-soft)}
-  .pay-opt .pe{font-size:26px}
+  .pay-opt .pic{width:40px;height:40px;border-radius:11px;background:var(--bg);display:grid;place-items:center;flex:0 0 40px}
+  .pay-opt .pic .ic{font-size:22px;color:var(--ink)}
+  .pay-opt.active .pic{background:#fff}
   .pay-opt .pt{flex:1}
   .pay-opt .pt b{font-family:'Baloo 2';font-weight:700;font-size:15px;display:block}
   .pay-opt .pt span{font-size:12px;color:var(--ink-soft);font-weight:700}
@@ -234,38 +162,26 @@
   .pay-opt.active .radio{border-color:var(--orange);background:radial-gradient(var(--orange) 40%,#fff 46%)}
 
   .backbtn{display:inline-flex;align-items:center;gap:5px;background:none;border:none;font-family:'Baloo 2';font-weight:700;font-size:15px;color:var(--ink);cursor:pointer;margin-bottom:6px}
-  .pagetitle{font-family:'Baloo 2';font-weight:800;font-size:23px;margin:2px 2px 16px}
+  .backbtn .ic{font-size:18px}
+  .pagetitle{font-family:'Baloo 2';font-weight:800;font-size:23px;margin:2px 2px 16px;display:flex;align-items:center;gap:9px}
+  .pagetitle .ic{font-size:22px;color:var(--orange)}
 
-  /* ---------- Pix ---------- */
   .pix-wrap{text-align:center;padding:6px 4px}
-  .qr{
-    width:210px;height:210px;background:#fff;border-radius:20px;margin:6px auto 16px;
-    padding:14px;box-shadow:var(--shadow-lg);position:relative;
-  }
+  .qr{width:210px;height:210px;background:#fff;border-radius:20px;margin:6px auto 16px;padding:14px;box-shadow:var(--shadow-lg);position:relative}
   .qr svg{width:100%;height:100%}
   .qr .logohole{position:absolute;inset:0;margin:auto;width:52px;height:52px;background:#fff;border-radius:12px;display:grid;place-items:center;box-shadow:0 0 0 5px #fff}
   .qr .logohole img{width:44px;height:44px;border-radius:10px}
-  .pixcode{
-    display:flex;align-items:center;gap:8px;background:#fff;border:1.5px dashed var(--line);
-    border-radius:12px;padding:11px 12px;margin:0 auto 16px;max-width:300px;
-  }
+  .pixcode{display:flex;align-items:center;gap:8px;background:#fff;border:1.5px dashed var(--line);border-radius:12px;padding:11px 12px;margin:0 auto 16px;max-width:300px}
   .pixcode code{flex:1;font-family:monospace;font-size:11px;color:var(--ink-soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:left}
   .pixcode button{background:var(--ink);color:#fff;border:none;border-radius:9px;padding:7px 12px;font-family:'Baloo 2';font-weight:700;font-size:12px;cursor:pointer;flex:0 0 auto}
   .waiting{display:flex;align-items:center;justify-content:center;gap:10px;color:var(--orange-deep);font-family:'Baloo 2';font-weight:700;font-size:15px;margin-bottom:6px}
-  .paws{display:flex;gap:6px}
-  .paws span{font-size:18px;animation:bounce 1s infinite}
-  .paws span:nth-child(2){animation-delay:.15s}
-  .paws span:nth-child(3){animation-delay:.3s}
-  @keyframes bounce{0%,100%{transform:translateY(0);opacity:.4}50%{transform:translateY(-7px);opacity:1}}
+  .waiting .ic{font-size:18px}
+  .spinner{width:20px;height:20px;border:2.6px solid var(--orange-soft);border-top-color:var(--orange);border-radius:50%;animation:spin .8s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
   .pixval{font-family:'Baloo 2';font-weight:800;font-size:30px;margin-bottom:2px}
 
-  /* ---------- Success ---------- */
   .success{text-align:center;padding:30px 10px}
-  .checkmark{
-    width:96px;height:96px;border-radius:50%;background:var(--green-soft);
-    display:grid;place-items:center;margin:8px auto 18px;position:relative;
-    animation:popin .5s cubic-bezier(.2,1.4,.4,1);
-  }
+  .checkmark{width:96px;height:96px;border-radius:50%;background:var(--green-soft);display:grid;place-items:center;margin:8px auto 18px;animation:popin .5s cubic-bezier(.2,1.4,.4,1)}
   @keyframes popin{0%{transform:scale(0)}100%{transform:scale(1)}}
   .checkmark svg{width:48px;height:48px}
   .success h2{font-family:'Baloo 2';font-weight:800;font-size:26px;margin-bottom:6px}
@@ -276,70 +192,128 @@
   .order-card .on span{background:var(--green-soft);color:var(--green);font-family:'Baloo 2';font-weight:700;font-size:12px;padding:4px 10px;border-radius:20px}
   .order-card .oi{display:flex;justify-content:space-between;font-weight:700;font-size:13.5px;color:var(--ink-soft);margin-bottom:6px}
 
-  /* ---------- Lojista panel ---------- */
-  .loj-head{background:var(--ink);color:#fff;padding:16px 18px;display:flex;align-items:center;gap:10px}
-  .loj-head .e{font-size:26px}
+  .loj-head{background:var(--ink);color:#fff;padding:16px 18px;display:flex;align-items:center;gap:12px}
+  .loj-head .lic{width:40px;height:40px;border-radius:11px;background:rgba(255,255,255,.12);display:grid;place-items:center}
+  .loj-head .lic .ic{font-size:22px}
   .loj-head b{font-family:'Baloo 2';font-weight:800;font-size:18px;display:block}
   .loj-head span{font-size:12px;opacity:.7;font-weight:700}
   .neworder{background:#fff;border-radius:18px;box-shadow:var(--shadow);overflow:hidden;margin-bottom:14px;border:1px solid #FBF2E6}
   .neworder .nh{background:var(--orange-soft);padding:12px 15px;display:flex;justify-content:space-between;align-items:center}
-  .neworder .nh b{font-family:'Baloo 2';font-weight:800;font-size:15px;color:var(--orange-deep)}
+  .neworder .nh b{font-family:'Baloo 2';font-weight:800;font-size:15px;color:var(--orange-deep);display:flex;align-items:center;gap:6px}
   .neworder .nh .t{font-size:11px;color:var(--ink-soft);font-weight:700}
   .neworder .nb{padding:15px}
   .neworder .cust{font-family:'Baloo 2';font-weight:700;font-size:16px}
-  .neworder .addr{font-size:13px;color:var(--ink-soft);font-weight:700;margin:3px 0 12px}
+  .neworder .addr{font-size:13px;color:var(--ink-soft);font-weight:700;margin:3px 0 12px;display:flex;gap:5px;align-items:flex-start}
+  .neworder .addr .ic{font-size:15px;flex:0 0 auto;margin-top:1px}
   .neworder .liw{background:#FBF6EF;border-radius:12px;padding:10px 12px;margin-bottom:12px}
   .neworder .liw .li{display:flex;justify-content:space-between;font-weight:700;font-size:13px;margin-bottom:4px}
-  .paytag{display:inline-block;font-family:'Baloo 2';font-weight:700;font-size:12px;padding:4px 10px;border-radius:10px;margin-bottom:12px}
+  .paytag{display:inline-flex;align-items:center;gap:5px;font-family:'Baloo 2';font-weight:700;font-size:12px;padding:4px 10px;border-radius:10px;margin-bottom:12px}
+  .paytag .ic{font-size:13px}
   .paytag.pago{background:var(--green-soft);color:var(--green)}
   .paytag.entrega{background:var(--sky);color:#2C6B7E}
   .statusflow{display:flex;gap:6px;margin-bottom:12px}
   .statusflow button{flex:1;border:1.5px solid var(--line);background:#fff;border-radius:11px;padding:8px 4px;font-family:'Baloo 2';font-weight:700;font-size:11px;color:var(--ink-soft);cursor:pointer}
   .statusflow button.done{background:var(--green);border-color:var(--green);color:#fff}
-  .wa-btn{width:100%;background:#25D366;color:#fff;border:none;border-radius:13px;padding:12px;font-family:'Baloo 2';font-weight:700;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px}
+  .wa-btn{width:100%;background:var(--wa);color:#fff;border:none;border-radius:13px;padding:12px;font-family:'Baloo 2';font-weight:700;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px}
+  .wa-btn .ic{font-size:18px}
+
+  .footer{background:#fff;border-radius:20px;box-shadow:var(--shadow);padding:16px;margin-top:22px;border:1px solid #FBF2E6}
+  .footer .fhead{display:flex;align-items:center;gap:11px;margin-bottom:12px}
+  .footer .fhead img{width:40px;height:40px;border-radius:50%}
+  .footer .fhead b{font-family:'Baloo 2';font-weight:800;font-size:16px;display:block}
+  .footer .fhead span{font-size:11.5px;color:var(--ink-soft);font-weight:700}
+  .footer .frow{display:flex;align-items:center;gap:9px;font-weight:700;font-size:13px;color:var(--ink-soft);padding:7px 0;text-decoration:none}
+  .footer .frow .ic{font-size:17px;color:var(--orange);flex:0 0 auto}
+  .footer .frow b{color:var(--ink)}
+  .map{display:block;border-radius:14px;overflow:hidden;margin-top:10px;border:1px solid var(--line);position:relative}
+  .map iframe{width:100%;height:150px;border:0;display:block}
+  .map .maptag{position:absolute;top:8px;left:8px;background:#fff;border-radius:20px;padding:5px 11px;font-family:'Baloo 2';font-weight:700;font-size:11px;color:var(--ink);box-shadow:var(--shadow);display:flex;align-items:center;gap:5px}
+  .map .maptag .ic{font-size:13px;color:var(--orange)}
+
+  .fab-wa{position:absolute;right:16px;bottom:88px;z-index:40;display:flex;align-items:center;gap:9px;background:var(--wa);color:#fff;border:none;border-radius:30px;padding:11px 16px 11px 13px;cursor:pointer;box-shadow:0 8px 22px rgba(37,211,102,.45);font-family:'Baloo 2';font-weight:700;font-size:13.5px;text-decoration:none;animation:fabin .4s .6s both}
+  @keyframes fabin{from{transform:translateY(20px);opacity:0}to{transform:none;opacity:1}}
+  .fab-wa .ic{font-size:22px}
+  .fab-wa .lbl{max-width:0;overflow:hidden;white-space:nowrap;transition:max-width .35s,margin .35s}
+  .fab-wa.open .lbl{max-width:130px;margin-left:2px}
 
   .demo-flag{position:absolute;top:0;left:0;right:0;text-align:center;background:var(--ink);color:#fff;font-family:'Baloo 2';font-weight:700;font-size:11px;padding:4px;z-index:60;letter-spacing:.3px}
-
-  .toast{
-    position:absolute;left:50%;bottom:92px;transform:translateX(-50%) translateY(20px);
-    background:var(--ink);color:#fff;font-family:'Baloo 2';font-weight:700;font-size:13px;
-    padding:11px 18px;border-radius:30px;box-shadow:var(--shadow-lg);z-index:70;opacity:0;transition:.28s;white-space:nowrap;
-  }
+  .toast{position:absolute;left:50%;bottom:92px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;font-family:'Baloo 2';font-weight:700;font-size:13px;padding:11px 18px;border-radius:30px;box-shadow:var(--shadow-lg);z-index:70;opacity:0;transition:.28s;white-space:nowrap}
   .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 </style>
 </head>
 <body>
 <div id="app">
-  <div class="demo-flag">🐾 PROTÓTIPO DEMONSTRATIVO — pagamento simulado</div>
+  <div class="demo-flag">PROTÓTIPO DEMONSTRATIVO — pagamento simulado</div>
 
-  <!-- TOP BAR -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11 12 3l9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+    <symbol id="i-back" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></symbol>
+    <symbol id="i-fwd" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></symbol>
+    <symbol id="i-paw" viewBox="0 0 24 24" fill="currentColor" stroke="none"><ellipse cx="12" cy="16" rx="4.6" ry="3.6"/><circle cx="6.5" cy="10.5" r="1.9"/><circle cx="17.5" cy="10.5" r="1.9"/><circle cx="9.3" cy="6.6" r="1.7"/><circle cx="14.7" cy="6.6" r="1.7"/></symbol>
+    <symbol id="i-scale" viewBox="0 0 24 24"><path d="M12 4v16M7 20h10M7 4h10"/><path d="M6 4 3 11h6L6 4zM18 4l-3 7h6l-3-7z"/></symbol>
+    <symbol id="i-box" viewBox="0 0 24 24"><path d="M12 3 3 7.5V17l9 4 9-4V7.5L12 3z"/><path d="M3 7.5 12 12l9-4.5M12 12v9"/></symbol>
+    <symbol id="i-store" viewBox="0 0 24 24"><path d="M4 9h16l-1-4H5L4 9z"/><path d="M5 9v11h14V9"/><path d="M9 20v-5h6v5"/></symbol>
+    <symbol id="i-pix" viewBox="0 0 24 24"><path d="M12 3 8 7H6v2l4 4-4 4v2h2l4-4 4 4h2v-2l-4-4 4-4V7h-2l-4-4z"/></symbol>
+    <symbol id="i-card" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18"/></symbol>
+    <symbol id="i-moto" viewBox="0 0 24 24"><circle cx="6" cy="17" r="2.5"/><circle cx="18" cy="17" r="2.5"/><path d="M8.5 17h6l3-6h-4l-2-3H8"/><path d="M17.5 11 16 8h3"/></symbol>
+    <symbol id="i-wa" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm5.4 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.6-.6-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-2 .9-2.2.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.4.6c-.1.2-.3.3-.1.6.1.3.6 1 1.3 1.6.9.8 1.6 1 1.9 1.2.2.1.4.1.6-.1l.7-.8c.2-.2.3-.2.6-.1l1.8.9c.3.1.4.2.5.3.1.2.1.8-.1 1.4z"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="p-dogfood" viewBox="0 0 24 24"><path d="M7 8c-2 0-3 1.5-3 3.5 0 4 3 8 8 8s8-4 8-8C20 9.5 19 8 17 8c-1.4 0-2 .8-2.8 1.6M9 9.6C8.2 8.8 7.6 8 6.2 8"/><path d="M12 8c1.2-1.4 1.4-3.2.6-4.4M12 8c-1.2-1.4-1.4-3.2-.6-4.4"/></symbol>
+    <symbol id="p-fish" viewBox="0 0 24 24"><path d="M4 12c3-4 8-5 12-4 2 .5 3.5 2 4 4-1.5 2-3 3.5-4 4-4 1-9 0-12-4z"/><path d="M20 12c1-1 2-1.4 2.4-1 .4.4 0 3.6-2.4 1z"/><circle cx="8" cy="11" r=".8" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="p-sack" viewBox="0 0 24 24"><path d="M8 4h8l-1 3c2 1 3 3.5 3 7 0 4-2 6-6 6s-6-2-6-6c0-3.5 1-6 3-7L8 4z"/><path d="M9.5 4c.5 1 4.5 1 5 0"/></symbol>
+    <symbol id="p-catpouch" viewBox="0 0 24 24"><path d="M5 6h14l-1 14H6L5 6z"/><path d="M8 6 9 3M16 6l-1-3"/><path d="M9 12c1 1.5 5 1.5 6 0"/></symbol>
+    <symbol id="p-bottle" viewBox="0 0 24 24"><path d="M10 3h4v3l1 2v11a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2V8l1-2V3z"/><path d="M9 12h6"/></symbol>
+    <symbol id="p-pad" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="14" rx="2"/><path d="M8 5v14M12 5v14M16 5v14"/></symbol>
+    <symbol id="p-ball" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M4 9c5 2 11 2 16 0M4 15c5-2 11-2 16 0"/></symbol>
+    <symbol id="p-bone" viewBox="0 0 24 24"><path d="M7 8a2.5 2.5 0 1 0-2 2.4L14 14a2.5 2.5 0 1 0 2 2 2.5 2.5 0 1 0 2-2L9 8.4A2.5 2.5 0 1 0 7 8z"/></symbol>
+    <symbol id="p-collar" viewBox="0 0 24 24"><path d="M4 9a8 4 0 0 0 16 0M4 9a8 4 0 0 1 16 0"/><circle cx="12" cy="13.5" r="1.6"/><path d="M12 15v2"/></symbol>
+    <symbol id="p-bowl" viewBox="0 0 24 24"><path d="M3 12h18a9 9 0 0 1-18 0z"/><ellipse cx="12" cy="10" rx="9" ry="2.5"/></symbol>
+  </defs></svg>
+
   <div class="topbar" id="topbar" style="margin-top:24px">
     <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1782999288/82c75cd8-8ca7-448d-bdbc-4a431a75b18e_qum62u.png" alt="Auaufood">
-    <div class="tt"><b>Auaufood</b><span>Delivery para seu pet 🐶</span></div>
-    <div class="region">📍 Sua região</div>
+    <div class="tt"><b>Auaufood</b><span>Delivery para seu pet</span></div>
+    <div class="region"><svg class="ic"><use href="#i-pin"/></svg> Ribeirão Preto</div>
   </div>
 
-  <!-- ===== CATALOG ===== -->
   <div class="screen" id="screen-catalog">
     <div class="hero">
-      <span class="paw">🐾</span>
+      <svg class="pawbg"><use href="#i-paw"/></svg>
       <h2>Ração e mimos<br>na porta de casa</h2>
       <p>Peça pelo celular e receba rapidinho, só aqui na região.</p>
     </div>
     <div class="cats" id="cats"></div>
     <div id="products"></div>
+
+    <div class="footer">
+      <div class="fhead">
+        <img src="https://res.cloudinary.com/dtdomrtyp/image/upload/v1782999288/82c75cd8-8ca7-448d-bdbc-4a431a75b18e_qum62u.png" alt="Auaufood">
+        <div><b>Auaufood</b><span>Delivery para seu pet</span></div>
+      </div>
+      <a class="frow" href="https://wa.me/5516997744187" target="_blank" rel="noopener"><svg class="ic"><use href="#i-wa"/></svg> WhatsApp <b>(16) 99774-4187</b></a>
+      <a class="frow" href="https://instagram.com/auau_food_" target="_blank" rel="noopener"><svg class="ic"><use href="#i-instagram"/></svg> Instagram <b>@auau_food_</b></a>
+      <div class="frow"><svg class="ic"><use href="#i-pin"/></svg> R. Niterói, 743 — Jd. Castelo Branco, Ribeirão Preto/SP</div>
+      <a class="map" href="https://www.google.com/maps/search/?api=1&query=R.+Niter%C3%B3i%2C+743+-+Jardim+Castelo+Branco%2C+Ribeir%C3%A3o+Preto+-+SP%2C+14090-710" target="_blank" rel="noopener">
+        <span class="maptag"><svg class="ic"><use href="#i-pin"/></svg> Ver no mapa</span>
+        <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=R.%20Niter%C3%B3i%2C%20743%2C%20Ribeir%C3%A3o%20Preto%20-%20SP%2C%2014090-710&t=&z=15&ie=UTF8&iwloc=&output=embed"></iframe>
+      </a>
+    </div>
   </div>
 
-  <!-- ===== CART ===== -->
   <div class="screen hidden" id="screen-cart">
-    <div class="pagetitle">Sua sacola 🛍️</div>
+    <div class="pagetitle"><svg class="ic"><use href="#i-bag"/></svg> Sua sacola</div>
     <div id="cart-body"></div>
   </div>
 
-  <!-- ===== CHECKOUT ===== -->
   <div class="screen hidden" id="screen-checkout">
-    <button class="backbtn" onclick="go('cart')">‹ Voltar</button>
-    <div class="pagetitle">Entrega e pagamento</div>
+    <button class="backbtn" onclick="go('cart')"><svg class="ic"><use href="#i-back"/></svg> Voltar</button>
+    <div class="pagetitle"><svg class="ic"><use href="#i-moto"/></svg> Entrega e pagamento</div>
 
     <div class="field"><label>Seu nome</label><input id="f-nome" placeholder="Ex: Maria Silva"></div>
     <div class="field"><label>WhatsApp</label><input id="f-wpp" placeholder="(16) 99999-9999" inputmode="tel"></div>
@@ -347,36 +321,33 @@
       <div class="field" style="flex:2"><label>Rua</label><input id="f-rua" placeholder="Rua das Flores"></div>
       <div class="field" style="flex:1"><label>Nº</label><input id="f-num" placeholder="123" inputmode="numeric"></div>
     </div>
-    <div class="field">
-      <label>Bairro (define o frete)</label>
-      <select id="f-bairro" onchange="renderCart()">
-        <option value="">Selecione seu bairro…</option>
-      </select>
-    </div>
+    <div class="field"><label>Bairro</label><input id="f-bairro" placeholder="Ex: Lagoinha, Nova Aliança…"></div>
     <div class="field"><label>Complemento / referência</label><input id="f-comp" placeholder="Apto 12, próximo à praça"></div>
 
     <div class="sechead" style="margin-left:2px">Como quer pagar?</div>
     <div class="pay-opt active" data-pay="pix" onclick="selectPay('pix')">
-      <span class="pe">📱</span><div class="pt"><b>Pix</b><span>Pague agora, aprovação na hora</span></div><div class="radio"></div>
+      <span class="pic"><svg class="ic"><use href="#i-pix"/></svg></span>
+      <div class="pt"><b>Pix</b><span>Pague agora, aprovação na hora</span></div><div class="radio"></div>
     </div>
     <div class="pay-opt" data-pay="cartao" onclick="selectPay('cartao')">
-      <span class="pe">💳</span><div class="pt"><b>Cartão online</b><span>Crédito ou débito</span></div><div class="radio"></div>
+      <span class="pic"><svg class="ic"><use href="#i-card"/></svg></span>
+      <div class="pt"><b>Cartão online</b><span>Crédito ou débito</span></div><div class="radio"></div>
     </div>
     <div class="pay-opt" data-pay="entrega" onclick="selectPay('entrega')">
-      <span class="pe">🛵</span><div class="pt"><b>Pagar na entrega</b><span>Dinheiro, Pix ou maquininha</span></div><div class="radio"></div>
+      <span class="pic"><svg class="ic"><use href="#i-moto"/></svg></span>
+      <div class="pt"><b>Pagar na entrega</b><span>Dinheiro, Pix ou maquininha</span></div><div class="radio"></div>
     </div>
 
     <div class="summary" style="margin-top:16px">
       <div class="srow"><span>Subtotal</span><span id="co-sub">R$ 0,00</span></div>
-      <div class="srow"><span>Entrega</span><span id="co-fee">—</span></div>
-      <div class="srow total"><span>Total</span><span id="co-total">R$ 0,00</span></div>
+      <div class="srow"><span>Taxa de entrega</span><span id="co-fee">R$ 10,00</span></div>
+      <div class="srow total"><span>Total a pagar</span><span id="co-total">R$ 0,00</span></div>
     </div>
     <button class="btn btn-primary" id="co-btn" style="margin-top:16px" onclick="confirmCheckout()">Finalizar pedido</button>
   </div>
 
-  <!-- ===== PIX ===== -->
   <div class="screen hidden" id="screen-pix">
-    <button class="backbtn" onclick="go('checkout')">‹ Voltar</button>
+    <button class="backbtn" onclick="go('checkout')"><svg class="ic"><use href="#i-back"/></svg> Voltar</button>
     <div class="pix-wrap">
       <div class="pixval" id="pix-value">R$ 0,00</div>
       <div style="color:var(--ink-soft);font-weight:700;font-size:13px;margin-bottom:14px">Escaneie o QR Code para pagar</div>
@@ -385,52 +356,42 @@
         <code>00020126BR.GOV.BCB.PIX.AUAUFOOD5204…</code>
         <button onclick="copyPix(this)">Copiar</button>
       </div>
-      <div class="waiting" id="pix-wait">
-        <div class="paws"><span>🐾</span><span>🐾</span><span>🐾</span></div>
-        Aguardando pagamento…
-      </div>
+      <div class="waiting" id="pix-wait"><div class="spinner"></div> Aguardando pagamento…</div>
       <div style="color:var(--ink-soft);font-size:12px;font-weight:600;margin-top:4px">A confirmação é automática assim que o Pix cair.</div>
     </div>
   </div>
 
-  <!-- ===== SUCCESS ===== -->
   <div class="screen hidden" id="screen-success">
     <div class="success">
-      <div class="checkmark">
-        <svg viewBox="0 0 52 52"><path fill="none" stroke="#3E9B54" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" d="M14 27 l8 8 l16 -18"/></svg>
-      </div>
-      <h2 id="succ-title">Pedido confirmado! 🎉</h2>
+      <div class="checkmark"><svg viewBox="0 0 52 52"><path fill="none" stroke="#3E9B54" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" d="M14 27 l8 8 l16 -18"/></svg></div>
+      <h2 id="succ-title">Pedido confirmado!</h2>
       <p id="succ-sub">Já mandamos seu pedido pra loja.<br>Você vai receber tudo pelo WhatsApp.</p>
       <div class="order-card" id="succ-card"></div>
-      <button class="btn btn-dark" onclick="openLojista()">👀 Ver como chega pra loja</button>
+      <button class="btn btn-dark" onclick="openLojista()"><svg class="ic"><use href="#i-store"/></svg> Ver como chega pra loja</button>
       <button class="btn btn-ghost" style="margin-top:10px" onclick="resetAll()">Fazer novo pedido</button>
     </div>
   </div>
 
-  <!-- ===== LOJISTA ===== -->
   <div class="screen hidden" id="screen-lojista" style="padding:0 0 30px">
     <div class="loj-head">
-      <span class="e">🏪</span>
+      <span class="lic"><svg class="ic"><use href="#i-store"/></svg></span>
       <div><b>Painel do Lojista</b><span>Novos pedidos chegam aqui</span></div>
     </div>
     <div style="padding:16px" id="loj-body"></div>
     <div style="padding:0 16px">
-      <button class="btn btn-ghost" onclick="go('success')">‹ Voltar pra loja</button>
+      <button class="btn btn-ghost" onclick="go('success')"><svg class="ic"><use href="#i-back"/></svg> Voltar pra loja</button>
     </div>
   </div>
 
-  <!-- BOTTOM NAV -->
   <div class="bottomnav" id="bottomnav">
-    <button class="tab active" id="tab-catalog" onclick="go('catalog')">
-      <span class="ic">🏠</span>Início
-    </button>
-    <button class="tab" id="tab-cart" onclick="go('cart')">
-      <span class="ic">🛍️</span>Sacola
-      <span class="cartcount" id="cartcount">0</span>
-    </button>
+    <button class="tab active" id="tab-catalog" onclick="go('catalog')"><svg class="ic"><use href="#i-home"/></svg>Início</button>
+    <button class="tab" id="tab-cart" onclick="go('cart')"><svg class="ic"><use href="#i-bag"/></svg>Sacola<span class="cartcount" id="cartcount">0</span></button>
   </div>
 
-  <!-- SHEET -->
+  <a class="fab-wa" id="fabwa" href="https://wa.me/5516997744187?text=Ol%C3%A1!%20Tenho%20uma%20d%C3%BAvida%20sobre%20a%20Auaufood" target="_blank" rel="noopener">
+    <svg class="ic"><use href="#i-wa"/></svg><span class="lbl">Tire suas dúvidas</span>
+  </a>
+
   <div class="sheet-back" id="sheet-back" onclick="closeSheet(event)">
     <div class="sheet" id="sheet" onclick="event.stopPropagation()"></div>
   </div>
@@ -439,58 +400,50 @@
 </div>
 
 <script>
-/* ---------------- DATA ---------------- */
 const BRL = v => 'R$ ' + v.toFixed(2).replace('.',',');
+const DELIVERY_FEE = 10.00; // taxa fixa de entrega — ajustável
 
 const PRODUCTS = [
-  {id:1, cat:'Ração', name:'Golden Fórmula Cães Adultos', desc:'Frango & arroz — a granel', emoji:'🦴', bg:'#FDEBD3', type:'granel', perKg:22.90},
-  {id:2, cat:'Ração', name:'Premier Gatos Castrados', desc:'Salmão — a granel', emoji:'🐟', bg:'#DCEEF3', type:'granel', perKg:38.50},
-  {id:3, cat:'Ração', name:'Golden Special — Saco 15kg', desc:'Pacote fechado', emoji:'🎒', bg:'#EAEDC9', type:'unit', price:189.90},
-  {id:4, cat:'Ração', name:'Whiskas Sachê Gatos', desc:'Caixa com 15 sachês', emoji:'🐱', bg:'#FDEBD3', type:'unit', price:34.90},
-  {id:5, cat:'Higiene', name:'Shampoo Pet Clean 500ml', desc:'Neutro, pele sensível', emoji:'🧴', bg:'#DCEEF3', type:'unit', price:27.90},
-  {id:6, cat:'Higiene', name:'Tapete Higiênico', desc:'Pacote com 30 unidades', emoji:'🧻', bg:'#EAEDC9', type:'unit', price:49.90},
-  {id:7, cat:'Brinquedos', name:'Bolinha Maciça', desc:'Borracha atóxica', emoji:'🎾', bg:'#FDEBD3', type:'unit', price:12.90},
-  {id:8, cat:'Brinquedos', name:'Osso de Nylon', desc:'Sabor bacon', emoji:'🦴', bg:'#DCEEF3', type:'unit', price:24.90},
-  {id:9, cat:'Acessórios', name:'Coleira Ajustável', desc:'Tam. M — várias cores', emoji:'🐕', bg:'#EAEDC9', type:'unit', price:32.90},
-  {id:10, cat:'Acessórios', name:'Comedouro Inox Duplo', desc:'Base antiderrapante', emoji:'🥣', bg:'#FDEBD3', type:'unit', price:44.90},
+  {id:1, cat:'Ração', name:'Golden Fórmula Cães Adultos', desc:'Frango & arroz — a granel', icon:'p-dogfood', bg:'#FDEBD3', type:'granel', perKg:22.90},
+  {id:2, cat:'Ração', name:'Premier Gatos Castrados', desc:'Salmão — a granel', icon:'p-fish', bg:'#DCEEF3', type:'granel', perKg:38.50},
+  {id:3, cat:'Ração', name:'Golden Special — Saco 15kg', desc:'Pacote fechado', icon:'p-sack', bg:'#EAEDC9', type:'unit', price:189.90},
+  {id:4, cat:'Ração', name:'Whiskas Sachê Gatos', desc:'Caixa com 15 sachês', icon:'p-catpouch', bg:'#FDEBD3', type:'unit', price:34.90},
+  {id:5, cat:'Higiene', name:'Shampoo Pet Clean 500ml', desc:'Neutro, pele sensível', icon:'p-bottle', bg:'#DCEEF3', type:'unit', price:27.90},
+  {id:6, cat:'Higiene', name:'Tapete Higiênico', desc:'Pacote com 30 unidades', icon:'p-pad', bg:'#EAEDC9', type:'unit', price:49.90},
+  {id:7, cat:'Brinquedos', name:'Bolinha Maciça', desc:'Borracha atóxica', icon:'p-ball', bg:'#FDEBD3', type:'unit', price:12.90},
+  {id:8, cat:'Brinquedos', name:'Osso de Nylon', desc:'Sabor bacon', icon:'p-bone', bg:'#DCEEF3', type:'unit', price:24.90},
+  {id:9, cat:'Acessórios', name:'Coleira Ajustável', desc:'Tam. M — várias cores', icon:'p-collar', bg:'#EAEDC9', type:'unit', price:32.90},
+  {id:10, cat:'Acessórios', name:'Comedouro Inox Duplo', desc:'Base antiderrapante', icon:'p-bowl', bg:'#FDEBD3', type:'unit', price:44.90},
 ];
 const CATS = [
-  {name:'Tudo', e:'🐾'},{name:'Ração', e:'🦴'},{name:'Higiene', e:'🧴'},{name:'Brinquedos', e:'🎾'},{name:'Acessórios', e:'🎀'}
+  {name:'Tudo', ic:'i-paw'},{name:'Ração', ic:'p-dogfood'},{name:'Higiene', ic:'p-bottle'},{name:'Brinquedos', ic:'p-ball'},{name:'Acessórios', ic:'p-collar'}
 ];
-const BAIRROS = [
-  {name:'Centro', fee:5},{name:'Jardim Sumaré', fee:6},{name:'Alto da Boa Vista', fee:7},
-  {name:'Ribeirânia', fee:8},{name:'City Ribeirão', fee:9},{name:'Nova Aliança', fee:8}
-];
-const FREE_OVER = 99;
-const WEIGHTS = [100,250,500,1000];
+const QUICK_W = [250,500,1000,2000];
 
 let cart = [];
 let currentCat = 'Tudo';
 let payMethod = 'pix';
 let lastOrder = null;
 
-/* ---------------- NAV ---------------- */
+const use = id => `<svg class="ic"><use href="#${id}"/></svg>`;
 const screens = ['catalog','cart','checkout','pix','success','lojista'];
 function go(s){
   screens.forEach(x=>document.getElementById('screen-'+x).classList.add('hidden'));
   document.getElementById('screen-'+s).classList.remove('hidden');
   document.getElementById('screen-'+s).scrollTop = 0;
-  const nav = document.getElementById('bottomnav');
-  const bar = document.getElementById('topbar');
   const showNav = (s==='catalog'||s==='cart');
-  nav.style.display = showNav ? 'flex' : 'none';
-  bar.style.display = (s==='lojista') ? 'none' : 'flex';
+  document.getElementById('bottomnav').style.display = showNav ? 'flex' : 'none';
+  document.getElementById('fabwa').style.display = showNav ? 'flex' : 'none';
+  document.getElementById('topbar').style.display = (s==='lojista') ? 'none' : 'flex';
   document.getElementById('tab-catalog').classList.toggle('active', s==='catalog');
   document.getElementById('tab-cart').classList.toggle('active', s==='cart');
   if(s==='cart') renderCart();
-  if(s==='checkout') renderCheckout();
+  if(s==='checkout') updateCheckoutTotals();
 }
 
-/* ---------------- CATALOG ---------------- */
 function renderCats(){
   document.getElementById('cats').innerHTML = CATS.map(c=>
-    `<button class="chip ${c.name===currentCat?'active':''}" onclick="setCat('${c.name}')"><span class="e">${c.e}</span>${c.name}</button>`
-  ).join('');
+    `<button class="chip ${c.name===currentCat?'active':''}" onclick="setCat('${c.name}')">${use(c.ic)}${c.name}</button>`).join('');
 }
 function setCat(c){currentCat=c;renderCats();renderProducts();}
 function renderProducts(){
@@ -500,71 +453,83 @@ function renderProducts(){
       ? `<div class="price">${BRL(p.perKg)}<small>/kg</small></div>`
       : `<div class="price">${BRL(p.price)}</div>`;
     const badge = p.type==='granel'
-      ? `<span class="badge granel">⚖️ A granel</span>`
-      : `<span class="badge pacote">📦 Pacote</span>`;
+      ? `<span class="badge granel">${use('i-scale')} A granel</span>`
+      : `<span class="badge pacote">${use('i-box')} Pacote</span>`;
     return `<div class="card">
-      <div class="thumb" style="background:${p.bg}">${p.emoji}</div>
+      <div class="thumb" style="background:${p.bg}">${use(p.icon)}</div>
       <div class="info">
-        <h3>${p.name}</h3>
-        <div class="desc">${p.desc}</div>
-        ${badge}
-        <div class="foot">${priceHtml}
-          <button class="addbtn" onclick="openSheet(${p.id})">+</button>
-        </div>
-      </div>
-    </div>`;
+        <h3>${p.name}</h3><div class="desc">${p.desc}</div>${badge}
+        <div class="foot">${priceHtml}<button class="addbtn" onclick="openSheet(${p.id})">${use('i-plus')}</button></div>
+      </div></div>`;
   }).join('');
 }
 
-/* ---------------- SHEET (add product) ---------------- */
-let sheetSel = {weight:500, qty:1};
+let sheetSel = {grams:500, qty:1};
 function openSheet(id){
   const p = PRODUCTS.find(x=>x.id===id);
-  sheetSel = {weight:500, qty:1};
-  const sheet = document.getElementById('sheet');
+  sheetSel = {grams:500, qty:1};
   let body = `<div class="grab"></div>
-    <div class="bigthumb" style="background:${p.bg}">${p.emoji}</div>
-    <h2>${p.name}</h2>
-    <div class="sdesc">${p.desc}</div>`;
+    <div class="bigthumb" style="background:${p.bg}">${use(p.icon)}</div>
+    <h2>${p.name}</h2><div class="sdesc">${p.desc}</div>`;
   if(p.type==='granel'){
-    body += `<span class="wlabel">Escolha a quantidade</span>
-      <div class="weights" id="weights">
-        ${WEIGHTS.map(w=>`<button class="wchip ${w===500?'active':''}" onclick="setWeight(${w},${p.id})">${w<1000?w+'g':'1kg'}</button>`).join('')}
-      </div>`;
+    body += `<span class="wlabel">Digite quantos gramas você quer</span>
+      <div class="graminput">
+        <input id="graminput" type="number" inputmode="numeric" value="500" min="50" step="10" oninput="onGrams(${p.id})">
+        <span class="unit">g</span>
+      </div>
+      <div class="quickw" id="quickw">
+        ${QUICK_W.map(w=>`<button class="qw ${w===500?'active':''}" onclick="setQuick(${w},${p.id})">${w<1000?w+'g':(w/1000)+'kg'}</button>`).join('')}
+      </div>
+      <div style="font-size:12px;color:var(--ink-soft);font-weight:700;margin:2px 2px 16px">${BRL(p.perKg)} por kg</div>`;
   } else {
     body += `<span class="wlabel">Quantidade</span>
       <div class="stepper">
-        <button onclick="stepQty(-1,${p.id})">−</button>
+        <button onclick="stepQty(-1,${p.id})">${use('i-minus')}</button>
         <span id="qtyval">1</span>
-        <button onclick="stepQty(1,${p.id})">+</button>
+        <button onclick="stepQty(1,${p.id})">${use('i-plus')}</button>
       </div>`;
   }
   body += `<div class="sheet-total">
       <span style="font-weight:800;color:var(--ink-soft);font-size:14px">Total do item</span>
-      <span class="price" id="sheet-price"></span>
-    </div>
-    <button class="btn btn-primary" onclick="addFromSheet(${p.id})">Adicionar à sacola 🛍️</button>`;
-  sheet.innerHTML = body;
+      <span class="price" id="sheet-price"></span></div>
+    <button class="btn btn-primary" onclick="addFromSheet(${p.id})">${use('i-bag')} Adicionar à sacola</button>`;
+  document.getElementById('sheet').innerHTML = body;
   updateSheetPrice(p.id);
   document.getElementById('sheet-back').classList.add('show');
 }
-function closeSheet(e){ document.getElementById('sheet-back').classList.remove('show'); }
-function setWeight(w,id){ sheetSel.weight=w; document.querySelectorAll('#weights .wchip').forEach(c=>c.classList.remove('active')); event.target.classList.add('active'); updateSheetPrice(id);}
+function closeSheet(){ document.getElementById('sheet-back').classList.remove('show'); }
+function onGrams(id){
+  let v = parseInt(document.getElementById('graminput').value)||0;
+  sheetSel.grams = v;
+  document.querySelectorAll('#quickw .qw').forEach(c=>{
+    const cw = c.textContent.includes('kg') ? parseFloat(c.textContent)*1000 : parseInt(c.textContent);
+    c.classList.toggle('active', cw===v);
+  });
+  updateSheetPrice(id);
+}
+function setQuick(w,id){
+  sheetSel.grams=w;
+  document.getElementById('graminput').value=w;
+  document.querySelectorAll('#quickw .qw').forEach(c=>c.classList.remove('active'));
+  event.target.classList.add('active');
+  updateSheetPrice(id);
+}
 function stepQty(d,id){ sheetSel.qty=Math.max(1,sheetSel.qty+d); document.getElementById('qtyval').textContent=sheetSel.qty; updateSheetPrice(id);}
-function itemPrice(p){ return p.type==='granel' ? p.perKg*(sheetSel.weight/1000) : p.price*sheetSel.qty; }
-function updateSheetPrice(id){ const p=PRODUCTS.find(x=>x.id===id); document.getElementById('sheet-price').textContent=BRL(itemPrice(p)); }
+function itemPrice(p){ return p.type==='granel' ? p.perKg*(sheetSel.grams/1000) : p.price*sheetSel.qty; }
+function updateSheetPrice(id){ const p=PRODUCTS.find(x=>x.id===id); document.getElementById('sheet-price').textContent=BRL(Math.max(0,itemPrice(p))); }
 function addFromSheet(id){
   const p=PRODUCTS.find(x=>x.id===id);
+  if(p.type==='granel' && (!sheetSel.grams || sheetSel.grams<50)){ toast('Digite pelo menos 50g'); return; }
+  const gLabel = sheetSel.grams<1000 ? sheetSel.grams+'g' : (sheetSel.grams/1000).toString().replace('.',',')+'kg';
   const line = p.type==='granel'
-    ? {name:p.name, emoji:p.emoji, bg:p.bg, qtyLabel:(sheetSel.weight<1000?sheetSel.weight+'g':(sheetSel.weight/1000)+'kg'), price:itemPrice(p)}
-    : {name:p.name, emoji:p.emoji, bg:p.bg, qtyLabel:sheetSel.qty+' un', price:itemPrice(p)};
+    ? {name:p.name, icon:p.icon, bg:p.bg, qtyLabel:gLabel, price:itemPrice(p)}
+    : {name:p.name, icon:p.icon, bg:p.bg, qtyLabel:sheetSel.qty+' un', price:itemPrice(p)};
   cart.push(line);
   closeSheet();
   updateCartCount(true);
-  toast(`${p.name} adicionado 🐾`);
+  toast('Adicionado à sacola');
 }
 
-/* ---------------- CART COUNT ---------------- */
 function updateCartCount(pulse){
   const el=document.getElementById('cartcount');
   el.textContent=cart.length;
@@ -572,107 +537,81 @@ function updateCartCount(pulse){
   if(pulse){el.classList.remove('pulse');void el.offsetWidth;el.classList.add('pulse');}
 }
 
-/* ---------------- CART ---------------- */
 function subtotal(){ return cart.reduce((s,i)=>s+i.price,0); }
-function deliveryFee(){
-  const b = document.getElementById('f-bairro') ? document.getElementById('f-bairro').value : '';
-  if(!b) return null;
-  if(subtotal()>=FREE_OVER) return 0;
-  const found = BAIRROS.find(x=>x.name===b);
-  return found ? found.fee : null;
-}
+function feeNow(){ return cart.length ? DELIVERY_FEE : 0; }
 function renderCart(){
   const body=document.getElementById('cart-body');
   if(cart.length===0){
-    body.innerHTML=`<div class="empty"><span class="e">🐕</span><p>Sua sacola está vazia</p>
+    body.innerHTML=`<div class="empty">${use('i-bag')}<p>Sua sacola está vazia</p>
       <button class="btn btn-primary" style="margin-top:18px;max-width:220px" onclick="go('catalog')">Ver produtos</button></div>`;
     return;
   }
-  const sub=subtotal();
-  const freeMsg = sub<FREE_OVER
-    ? `<div class="freebar">🚚 Faltam ${BRL(FREE_OVER-sub)} para <b>frete grátis!</b></div>`
-    : `<div class="freebar">🎉 Você ganhou <b>frete grátis!</b></div>`;
+  const sub=subtotal(), fee=feeNow();
   body.innerHTML = cart.map((i,idx)=>`
     <div class="citem">
-      <div class="cth" style="background:${i.bg}">${i.emoji}</div>
+      <div class="cth" style="background:${i.bg}">${use(i.icon)}</div>
       <div class="cin"><h4>${i.name}</h4><div class="q">${i.qtyLabel}</div></div>
       <div class="cpr">${BRL(i.price)}</div>
-      <button class="rm" onclick="removeItem(${idx})">✕</button>
+      <button class="rm" onclick="removeItem(${idx})">${use('i-x')}</button>
     </div>`).join('')
-    + freeMsg
     + `<div class="summary">
         <div class="srow"><span>Subtotal</span><span>${BRL(sub)}</span></div>
-        <div class="srow"><span>Entrega</span><span>calculada no checkout</span></div>
-        <div class="srow total"><span>Total</span><span>${BRL(sub)}</span></div>
+        <div class="srow"><span>Taxa de entrega</span><span>${BRL(fee)}</span></div>
+        <div class="srow total"><span>Total</span><span>${BRL(sub+fee)}</span></div>
       </div>
-      <button class="btn btn-primary" style="margin-top:16px" onclick="go('checkout')">Ir para entrega ›</button>`;
+      <button class="btn btn-primary" style="margin-top:16px" onclick="go('checkout')">Ir para entrega ${use('i-fwd')}</button>`;
 }
 function removeItem(idx){ cart.splice(idx,1); updateCartCount(); renderCart(); }
 
-/* ---------------- CHECKOUT ---------------- */
-function renderCheckout(){
-  const sel=document.getElementById('f-bairro');
-  if(sel.options.length<=1){
-    BAIRROS.forEach(b=>{ const o=document.createElement('option'); o.value=b.name; o.textContent=`${b.name} — ${BRL(b.fee)}`; sel.appendChild(o); });
-  }
-  updateCheckoutTotals();
-}
 function updateCheckoutTotals(){
-  const sub=subtotal(); const fee=deliveryFee();
+  const sub=subtotal(), fee=feeNow();
   document.getElementById('co-sub').textContent=BRL(sub);
-  document.getElementById('co-fee').textContent = fee===null ? 'Escolha o bairro' : (fee===0?'Grátis 🎉':BRL(fee));
-  document.getElementById('co-total').textContent = BRL(sub + (fee||0));
+  document.getElementById('co-fee').textContent=BRL(fee);
+  document.getElementById('co-total').textContent=BRL(sub+fee);
 }
 function selectPay(m){
   payMethod=m;
   document.querySelectorAll('.pay-opt').forEach(o=>o.classList.toggle('active',o.dataset.pay===m));
   document.getElementById('co-btn').textContent = m==='entrega' ? 'Confirmar pedido' : 'Ir para pagamento';
 }
-// recalc fee when bairro changes
-const origRenderCart = renderCart;
-document.addEventListener('input',e=>{ if(e.target.id==='f-bairro') updateCheckoutTotals(); });
-document.addEventListener('change',e=>{ if(e.target.id==='f-bairro') updateCheckoutTotals(); });
 
 function confirmCheckout(){
   const nome=document.getElementById('f-nome').value.trim();
-  const bairro=document.getElementById('f-bairro').value;
-  if(!nome){ toast('Preencha seu nome 🐾'); document.getElementById('f-nome').focus(); return; }
-  if(!bairro){ toast('Escolha seu bairro 🐾'); return; }
-  const sub=subtotal(); const fee=deliveryFee()||0;
+  const bairro=document.getElementById('f-bairro').value.trim();
+  if(!nome){ toast('Preencha seu nome'); document.getElementById('f-nome').focus(); return; }
+  if(!bairro){ toast('Escreva seu bairro'); document.getElementById('f-bairro').focus(); return; }
+  const sub=subtotal(), fee=feeNow();
   lastOrder = {
     nome, bairro,
     rua:document.getElementById('f-rua').value||'—',
     num:document.getElementById('f-num').value||'',
     wpp:document.getElementById('f-wpp').value||'—',
+    comp:document.getElementById('f-comp').value||'',
     items:[...cart], sub, fee, total:sub+fee, pay:payMethod,
     number:'#'+Math.floor(1000+Math.random()*9000)
   };
-  if(payMethod==='entrega'){ finishOrder(false); }
-  else { startPix(); }
+  if(payMethod==='entrega') finishOrder(false); else startPix();
 }
 
-/* ---------------- PIX ---------------- */
 function startPix(){
   go('pix');
   document.getElementById('pix-value').textContent=BRL(lastOrder.total);
   document.getElementById('qr').querySelector('svg')?.remove();
   document.getElementById('qr').insertAdjacentHTML('afterbegin', makeQR());
   const wait=document.getElementById('pix-wait');
-  wait.innerHTML=`<div class="paws"><span>🐾</span><span>🐾</span><span>🐾</span></div>Aguardando pagamento…`;
+  wait.innerHTML=`<div class="spinner"></div> Aguardando pagamento…`;
   wait.style.color='var(--orange-deep)';
   clearTimeout(window._pixT);
   window._pixT=setTimeout(()=>{
-    wait.innerHTML=`<span style="font-size:20px">✅</span> Pagamento aprovado!`;
+    wait.innerHTML=`${use('i-clock')} Pagamento aprovado!`;
     wait.style.color='var(--green)';
     setTimeout(()=>finishOrder(true),900);
   },5000);
 }
 function makeQR(){
-  // decorative fake QR — deterministic-ish grid
   const n=21, cell=100/n; let r='';
   const finder=(x,y)=>{r+=`<rect x="${x*cell}" y="${y*cell}" width="${cell*7}" height="${cell*7}" rx="${cell}" fill="#3D2A20"/><rect x="${(x+1)*cell}" y="${(y+1)*cell}" width="${cell*5}" height="${cell*5}" rx="${cell*.6}" fill="#fff"/><rect x="${(x+2)*cell}" y="${(y+2)*cell}" width="${cell*3}" height="${cell*3}" rx="${cell*.4}" fill="#3D2A20"/>`;};
-  let seed=7;
-  const rnd=()=>{seed=(seed*9301+49297)%233280;return seed/233280;};
+  let seed=7; const rnd=()=>{seed=(seed*9301+49297)%233280;return seed/233280;};
   for(let y=0;y<n;y++)for(let x=0;x<n;x++){
     if((x<7&&y<7)||(x>n-8&&y<7)||(x<7&&y>n-8))continue;
     if(rnd()>0.55) r+=`<rect x="${x*cell}" y="${y*cell}" width="${cell*.92}" height="${cell*.92}" rx="${cell*.28}" fill="#3D2A20"/>`;
@@ -682,11 +621,10 @@ function makeQR(){
 }
 function copyPix(btn){ btn.textContent='Copiado ✓'; setTimeout(()=>btn.textContent='Copiar',1500); }
 
-/* ---------------- SUCCESS ---------------- */
 function finishOrder(paid){
   go('success');
   const o=lastOrder;
-  document.getElementById('succ-title').textContent = paid ? 'Pagamento confirmado! 🎉' : 'Pedido confirmado! 🎉';
+  document.getElementById('succ-title').textContent = paid ? 'Pagamento confirmado!' : 'Pedido confirmado!';
   document.getElementById('succ-sub').innerHTML = paid
     ? 'Pix aprovado e pedido enviado pra loja.<br>Acompanhe tudo pelo WhatsApp.'
     : 'Enviamos seu pedido pra loja.<br>Você vai pagar na entrega.';
@@ -694,28 +632,27 @@ function finishOrder(paid){
   document.getElementById('succ-card').innerHTML=`
     <div class="on"><b>Pedido ${o.number}</b><span>${paid?'Pago':'A pagar'}</span></div>
     ${o.items.map(i=>`<div class="oi"><span>${i.qtyLabel} · ${i.name}</span><span>${BRL(i.price)}</span></div>`).join('')}
-    <div class="oi" style="margin-top:6px"><span>Entrega — ${o.bairro}</span><span>${o.fee===0?'Grátis':BRL(o.fee)}</span></div>
+    <div class="oi" style="margin-top:6px"><span>Subtotal</span><span>${BRL(o.sub)}</span></div>
+    <div class="oi"><span>Taxa de entrega — ${o.bairro}</span><span>${BRL(o.fee)}</span></div>
     <div class="oi" style="font-family:'Baloo 2';font-weight:800;color:var(--ink);font-size:15px;margin-top:8px;border-top:1px dashed var(--line);padding-top:10px"><span>Total</span><span>${BRL(o.total)}</span></div>
     <div class="oi" style="margin-top:8px"><span>Pagamento</span><span>${payLabel}</span></div>`;
   updateCartCount();
 }
 
-/* ---------------- LOJISTA ---------------- */
 function openLojista(){
   go('lojista');
   const o=lastOrder;
   const paid = o.pay!=='entrega';
-  const wppDigits = (o.wpp||'').replace(/\D/g,'') || '5516999999999';
   document.getElementById('loj-body').innerHTML=`
     <div class="neworder">
-      <div class="nh"><b>🔔 Novo pedido ${o.number}</b><span class="t">agora mesmo</span></div>
+      <div class="nh"><b>${use('i-clock')} Novo pedido ${o.number}</b><span class="t">agora mesmo</span></div>
       <div class="nb">
         <div class="cust">${o.nome}</div>
-        <div class="addr">${o.rua}, ${o.num} — ${o.bairro}</div>
-        <span class="paytag ${paid?'pago':'entrega'}">${paid?'✓ Pago via '+(o.pay==='pix'?'Pix':'Cartão'):'🛵 Paga na entrega'}</span>
+        <div class="addr">${use('i-pin')}<span>${o.rua}, ${o.num} — ${o.bairro}${o.comp?' ('+o.comp+')':''}</span></div>
+        <span class="paytag ${paid?'pago':'entrega'}">${paid?use('i-pix')+' Pago via '+(o.pay==='pix'?'Pix':'Cartão'):use('i-moto')+' Paga na entrega'}</span>
         <div class="liw">
           ${o.items.map(i=>`<div class="li"><span>${i.qtyLabel} · ${i.name}</span><span>${BRL(i.price)}</span></div>`).join('')}
-          <div class="li"><span>Entrega</span><span>${o.fee===0?'Grátis':BRL(o.fee)}</span></div>
+          <div class="li"><span>Taxa de entrega</span><span>${BRL(o.fee)}</span></div>
           <div class="li" style="font-weight:800;border-top:1px dashed #E4D6C4;padding-top:6px;margin-top:4px"><span>Total</span><span>${BRL(o.total)}</span></div>
         </div>
         <div class="statusflow">
@@ -724,33 +661,32 @@ function openLojista(){
           <button onclick="lojStatus(this,2)">Saiu</button>
           <button onclick="lojStatus(this,3)">Entregue</button>
         </div>
-        <button class="wa-btn" onclick="toast('Abriria o WhatsApp do cliente 📲')">💬 Chamar ${o.nome.split(' ')[0]} no WhatsApp</button>
+        <button class="wa-btn" onclick="toast('Abriria o WhatsApp do cliente')">${use('i-wa')} Chamar ${o.nome.split(' ')[0]} no WhatsApp</button>
       </div>
     </div>
     <div style="text-align:center;color:var(--ink-soft);font-weight:700;font-size:12.5px;padding:4px 10px 14px">
-      No sistema real, este painel fica no celular ou computador do dono e cada novo pedido chega com um alerta. 🔔
+      No sistema real, este painel fica no celular ou computador do dono e cada novo pedido chega com um alerta.
     </div>`;
 }
 function lojStatus(btn,i){
   const btns=btn.parentElement.querySelectorAll('button');
   btns.forEach((b,idx)=>b.classList.toggle('done',idx<=i));
-  const labels=['Pedido recebido ✅','Preparando o pedido 👨‍🍳','Saiu para entrega 🛵','Entregue! 🎉'];
-  toast(labels[i]);
+  toast(['Pedido recebido','Preparando o pedido','Saiu para entrega','Pedido entregue'][i]);
 }
 
-/* ---------------- UTIL ---------------- */
 function toast(msg){
   const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show');
   clearTimeout(window._toastT); window._toastT=setTimeout(()=>t.classList.remove('show'),1900);
 }
-function resetAll(){ cart=[]; lastOrder=null; payMethod='pix'; currentCat='Tudo';
+function resetAll(){
+  cart=[]; lastOrder=null; payMethod='pix'; currentCat='Tudo';
   document.querySelectorAll('.pay-opt').forEach(o=>o.classList.toggle('active',o.dataset.pay==='pix'));
-  ['f-nome','f-wpp','f-rua','f-num','f-comp'].forEach(id=>document.getElementById(id).value='');
-  document.getElementById('f-bairro').value='';
+  ['f-nome','f-wpp','f-rua','f-num','f-comp','f-bairro'].forEach(id=>document.getElementById(id).value='');
   updateCartCount(); renderCats(); renderProducts(); go('catalog');
 }
 
-/* ---------------- INIT ---------------- */
+setTimeout(()=>{ const f=document.getElementById('fabwa'); f.classList.add('open'); setTimeout(()=>f.classList.remove('open'),3200); },1200);
+
 renderCats(); renderProducts(); go('catalog');
 </script>
 </body>
